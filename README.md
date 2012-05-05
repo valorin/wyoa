@@ -1,4 +1,4 @@
-#Write your own Adventure
+# Write your own Adventure
 
 *The collaborative 'Choose your own Adventure' generator.*
 
