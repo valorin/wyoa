@@ -7,3 +7,32 @@ pre, code, kbd, samp {
   font-family:'Ubuntu Mono', monospace, serif;
   _font-family:'Ubuntu Mono', 'courier new', monospace;
 }
+
+header {
+    h1 {
+        a {
+            color: @headerLink;
+            text-decoration: none;
+            font-size: 35px;
+        }
+
+        small {
+            color: @headerSmall;
+            font-weight: normal;
+            font-size: 17px;
+        }
+    }
+}
+
+
+
+footer {
+    p {
+        font-size: 12px;
+        color: @footerText;
+
+        a {
+            color: @footerText;
+        }
+    }
+}
