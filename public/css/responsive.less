@@ -1,0 +1,54 @@
+/* WYOA Responsive Styles */
+
+@media (max-width: 480px) {
+    .content .extras aside {
+        width: auto;
+        float: none;
+    }
+}
+
+@media (max-width: 767px) {
+    header h1, footer, .content, .content .pages, .content .extras {
+        width: auto;
+    }
+    header h1 {
+        a {
+            font-size: 24px;
+        }
+        small {
+            font-size: 12px;
+        }
+    }
+    .content .extras {
+        display: block;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+    header h1, footer {
+        width: 680px;
+    }
+
+    .content {
+        width: 760px;
+
+        .pages {
+            width: 460px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    header h1, footer {
+        width: 1120px;
+    }
+
+    .content {
+        width: 1200px;
+
+        .pages {
+            width: 900px
+        }
+    }
+}

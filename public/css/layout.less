@@ -1,0 +1,68 @@
+/* WYOA Layout Styles */
+
+header {
+    background: @headerBackground;
+    border-bottom: @headerBorder;
+
+    h1 {
+        margin: 0 auto;
+        padding: 20px 40px;
+        width: 900px;
+
+        a {
+            color: @headerLink;
+            text-decoration: none;
+            font-size: 35px;
+        }
+
+        small {
+            color: @headerSmall;
+            font-weight: normal;
+            font-size: 17px;
+            display: block;
+        }
+    }
+}
+
+.content {
+    margin: 0 auto;
+    width: 980px;
+
+    .pages {
+        margin: 0 10px;
+        padding: 20px;
+        display: inline-block;
+        vertical-align: top;
+        width: 680px;
+    }
+
+    .extras {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 10px;
+        width: 240px;
+
+        aside {
+            width: 200px;
+            background: @extrasBackground;
+            border-top: @extrasBorder;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+        }
+    }
+}
+
+footer {
+    margin: 0 auto;
+    padding: 20px 40px;
+    text-align: center;
+    clear: both;
+    width: 900px;
+}
+
+header, .pages, aside {
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow:    @shadow;
+    box-shadow:         @shadow;
+}
