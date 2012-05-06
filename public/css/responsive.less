@@ -1,47 +1,75 @@
 /* WYOA Responsive Styles */
 
 @media (max-width: 480px) {
-    .content .extras aside {
-        width: auto;
-        float: none;
-    }
-}
-
-@media (max-width: 767px) {
-    header h1, footer, .content, .content .pages, .content .extras {
-        width: auto;
-    }
     header h1 {
         a {
-            font-size: 24px;
+            font-size: 18px;
         }
         small {
-            font-size: 12px;
+            font-size: 10px;
         }
+
     }
-    .content .extras {
+    .content .extras aside {
         display: block;
+        width: auto;
     }
 }
 
+@media (min-width: 481px) and (max-width: 719px) {
+    header h1 {
+        a {
+            font-size: 32px;
+        }
+        small {
+            font-size: 16px;
+        }
+    }
+}
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 720px) {
     header h1, footer {
-        width: 680px;
+        width: 660px;
+        margin: 0 auto;
     }
 
     .content {
-        width: 760px;
+        width: 720px;
+        margin: 0 auto;
 
         .pages {
-            width: 460px;
+            width: 660px;
+        }
+    }
+}
+
+
+@media (min-width: 980px) {
+    header h1, footer {
+        width: 920px;
+    }
+
+    .content {
+        width: 980px;
+
+        .pages {
+            width: 680px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .extras {
+            display: inline-block;
+            vertical-align: top;
+            padding-top: 10px;
+            width: 240px;
         }
     }
 }
 
 @media (min-width: 1200px) {
     header h1, footer {
-        width: 1120px;
+        width: 1140px;
     }
 
     .content {

@@ -5,9 +5,8 @@ header {
     border-bottom: @headerBorder;
 
     h1 {
-        margin: 0 auto;
-        padding: 20px 40px;
-        width: 900px;
+        margin: 0;
+        padding: 20px 30px;
 
         small {
             display: block;
@@ -16,40 +15,34 @@ header {
 }
 
 .content {
-    margin: 0 auto;
-    width: 980px;
+    margin: 0;
 
     .pages {
         margin: 0 10px;
         padding: 20px;
-        display: inline-block;
-        vertical-align: top;
-        width: 680px;
     }
 
     .extras {
-        display: inline-block;
-        vertical-align: top;
-        padding-top: 10px;
-        width: 240px;
+        text-align: center;
 
-        aside {
-            width: 200px;
+         aside {
             background: @extrasBackground;
             border-top: @extrasBorder;
+            width: 200px;
             padding: 10px;
             margin: 10px;
-            float: left;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
         }
     }
 }
 
 footer {
-    margin: 0 auto;
-    padding: 20px 40px;
+    margin: 0;
+    padding: 20px 10px;
     text-align: center;
     clear: both;
-    width: 900px;
 }
 
 header, .pages, aside {
