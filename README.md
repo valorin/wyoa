@@ -6,3 +6,7 @@
 I soon took it over and have maintained and re-written it a couple of forms before WYOA was born as an Open Source distributed solution.
 
 Development is in the very early stages, but I would love any help and suggestions you can provide.
+
+## Licence
+
+See [LICENCE.txt](https://github.com/valorin/wyoa/blob/master/LICENCE.txt).

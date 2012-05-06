@@ -3,6 +3,7 @@ return array(
     'modules' => array(
         'Application',
         'Story',
+        'Version',
     ),
     'module_listener_options' => array(
         'config_cache_enabled' => false,

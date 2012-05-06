@@ -6,6 +6,16 @@ use Zend\Module\Manager,
     Zend\EventManager\StaticEventManager,
     Zend\Module\Consumer\AutoloaderProvider;
 
+/**
+ * Application Module
+ *
+ * Base Module for the Application
+ *
+ * @package     WYOA
+ * @subpackage  Application\Module
+ * @copyright   Copyright (c) 2012, Stephen Rees-Carter <http://src.id.au/>
+ * @license     New BSD Licence, see LICENCE.txt
+ */
 class Module implements AutoloaderProvider
 {
     public function init(Manager $moduleManager)
@@ -33,7 +43,7 @@ class Module implements AutoloaderProvider
     {
         return include __DIR__ . '/config/module.config.php';
     }
-    
+
     public function initializeView($e)
     {
         $app          = $e->getParam('application');
