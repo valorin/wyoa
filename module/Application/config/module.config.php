@@ -32,8 +32,23 @@ return array(
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'Application\Controller\IndexController',
+                                    'controller' => 'Story\Controller\PageController',
                                     'action'     => 'index',
+                                ),
+                            ),
+                        ),
+                        'page' => array(
+                            'type'    => 'Zend\Mvc\Router\Http\Segment',
+                            'options' => array(
+                                'route'    => '/page/[:id[/:action]]',
+                                'constraints' => array(
+                                    'id'     => '[0-9]*',
+                                    'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                ),
+                                'defaults' => array(
+                                    'controller' => 'Story\Controller\PageController',
+                                    'action'     => 'index',
+                                    'id'         => 1,
                                 ),
                             ),
                         ),
@@ -42,7 +57,7 @@ return array(
                             'options' => array(
                                 'route'    => '/',
                                 'defaults' => array(
-                                    'controller' => 'Application\Controller\IndexController',
+                                    'controller' => 'Story\Controller\PageController',
                                     'action'     => 'index',
                                 ),
                             ),
@@ -53,7 +68,7 @@ return array(
 
             // Setup for the view layer.
 
-            // Using the PhpRenderer, which just handles html produced by php 
+            // Using the PhpRenderer, which just handles html produced by php
             // scripts
             'Zend\View\Renderer\PhpRenderer' => array(
                 'parameters' => array(
