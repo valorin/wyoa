@@ -4,16 +4,16 @@ use Zend\Db\Adapter\Adapter,
     Version\Model\AbstractVersion;
 
 /**
- * Version Script - Create User Table
+ * Version Script - Create Book Table
  *
- * Creates the `user` table in the db.
+ * Creates the `book` table in the db.
  *
  * @package     WYOA
  * @subpackage  Application\Version
  * @copyright   Copyright (c) 2012, Stephen Rees-Carter <http://src.id.au/>
  * @license     New BSD Licence, see LICENCE.txt
  */
-class CreateUserTable extends AbstractVersion
+class CreateBookTable extends AbstractVersion
 {
     /**
      * Upgrade Script
@@ -26,19 +26,12 @@ class CreateUserTable extends AbstractVersion
          * Build SQL
          */
         $sSql = <<<SQL
-CREATE TABLE `user` (
+CREATE TABLE `book` (
     `id`            BIGINT UNSIGNED AUTO_INCREMENT NOT NULL,
-    `email`         VARCHAR(255) NOT NULL,
-    `display`       VARCHAR(255) NOT NULL,
-    `password`      VARCHAR(60) DEFAULT NULL,
-    `hash`          VARCHAR(40) DEFAULT NULL,
-    `level`         ENUM('author', 'editor', 'bestseller'),
-    `registered`    TIMESTAMP DEFAULT 0,
-    `updated`       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                        ON UPDATE CURRENT_TIMESTAMP,
-    `lastvisit`     TIMESTAMP DEFAULT 0,
+    `url`           VARCHAR(255) NOT NULL,
+    `registered`    TIMESTAMP,
     PRIMARY KEY (`id`),
-    UNIQUE KEY (`email`)
+    UNIQUE KEY (`url`)
 ) ENGINE=INNODB
 SQL;
 
@@ -62,7 +55,7 @@ SQL;
         /**
          * Drop tables
          */
-        $this->_drop('user');
+        $this->_drop('book');
 
         return true;
     }
