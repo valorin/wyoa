@@ -1,9 +1,8 @@
 <?php
-return array(
+$aReturn = array(
     'modules' => array(
         'Application',
         'Story',
-        'Version',
     ),
     'module_listener_options' => array(
         'config_cache_enabled' => false,
@@ -14,3 +13,12 @@ return array(
         ),
     ),
 );
+
+$aAllowed = Array('127.0.0.1');
+$sKey     = "abc123";
+if (in_array($_SERVER['REMOTE_ADDR'], $aAllowed)
+    && isset($_GET['key']) && $_GET['key'] == $sKey) {
+    $aReturn['modules'][] = 'Version';
+}
+
+return $aReturn;
