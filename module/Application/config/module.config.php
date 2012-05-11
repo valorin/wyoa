@@ -32,7 +32,8 @@ return array(
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'Story\Controller\PageController',
+                                    'controller' =>
+                                            'Story\Controller\PageController',
                                     'action'     => 'index',
                                 ),
                             ),
@@ -46,7 +47,8 @@ return array(
                                     'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'Story\Controller\PageController',
+                                    'controller' =>
+                                            'Story\Controller\PageController',
                                     'action'     => 'index',
                                     'id'         => 1,
                                 ),
@@ -57,7 +59,8 @@ return array(
                             'options' => array(
                                 'route'    => '/',
                                 'defaults' => array(
-                                    'controller' => 'Story\Controller\PageController',
+                                    'controller' =>
+                                            'Story\Controller\PageController',
                                     'action'     => 'index',
                                 ),
                             ),
@@ -88,7 +91,8 @@ return array(
             'Zend\View\Resolver\TemplateMapResolver' => array(
                 'parameters' => array(
                     'map'  => array(
-                        'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
+                        'layout/layout' =>
+                            __DIR__ . '/../view/layout/layout.phtml',
                     ),
                 ),
             ),

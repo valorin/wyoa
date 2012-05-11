@@ -25,10 +25,8 @@ class PageTable extends TableGateway
      * @param String    $schema
      * @param ResultSet $selectResultPrototype
      */
-    public function __construct(Adapter $adapter = null, $databaseSchema = null,
-        ResultSet $selectResultPrototype = null)
+    public function __construct(Adapter $adapter = null)
     {
-        return parent::__construct('page', $adapter, $databaseSchema,
-            $selectResultPrototype);
+        return parent::__construct('page', $adapter);
     }
 }
