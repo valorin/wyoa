@@ -4,3 +4,6 @@
 [submodule "vendor/ValVersion"]
 	path = vendor/ValVersion
 	url = git://github.com/valorin/ValVersion.git
+[submodule "vendor/ValCommon"]
+	path = vendor/ValCommon
+	url = git@github.com:valorin/ValCommon.git
