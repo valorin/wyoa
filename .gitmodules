@@ -1,6 +1,6 @@
 [submodule "vendor/ZendFramework"]
 	path = vendor/ZendFramework
-	url = git://github.com/zendframework/zf2.git
-[submodule "vendor/Version"]
-	path = vendor/Version
-	url = git://github.com/valorin/zf2-version-module.git
+	url = git://github.com/zendframework/zf2.git	
+[submodule "vendor/ValVersion"]
+	path = vendor/ValVersion
+	url = git://github.com/valorin/ValVersion.git
