@@ -59,7 +59,7 @@ CREATE TABLE `page_version` (
     `page_id`   BIGINT UNSIGNED NOT NULL,
     `story`     LONGTEXT NOT NULL,
     `active`    TINYINT DEFAULT 1,
-    `timestamp` TIMESTAMP DEFAULT 0,
+    `timestamp` TIMESTAMP,
     PRIMARY KEY (`id`),
     KEY (`page_id`),
     FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE
@@ -72,6 +72,36 @@ SQL;
          */
         $this->_oDb->query($sSql, Adapter::QUERY_MODE_EXECUTE);
 
+
+        /**
+         * Create default pages
+         */
+        $aPages = Array(
+            Array(
+                'id'      => 1,
+                'title'   => "'Greetings Adventurer!'",
+                'created' => "NOW()",
+            ),
+            Array(
+                'id'      => 2,
+                'title'   => "'Other books to visit...'",
+                'created' => "NOW()",
+            ),
+        );
+        $aVersions = Array(
+            Array(
+                'page_id' => 1,
+                'story'   => "'[special:welcome]\n[special:about]'",
+            ),
+            Array(
+                'page_id' => 2,
+                'story'   => "'[special:other_books]'",
+            ),
+        );
+
+
+        $this->_insert('page', $aPages);
+        $this->_insert('page_version', $aVersions);
         return true;
     }
 
