@@ -52,9 +52,8 @@ echo $this->doctype()."\n";
         </aside><aside>
             <h3>Page Information</h3>
             <ul>
-                <li>Page #123</li>
-                <li>Last Updated: 2012-01-01</li>
-                <li>Backlinks: <a href='#'>1</a></li>
+                <li>Page #<?php echo $oPage->id; ?></li>
+                <li>Last Updated: <?php echo $oPage->updated; ?></li>
             </ul>
         </aside><aside>
             <h3>User Information</h3>

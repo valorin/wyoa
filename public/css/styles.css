@@ -189,6 +189,11 @@ header h1 small {
   font-weight:normal;
   font-size:17px;
 }
+.pages h2 { border-bottom:1px solid #772953; }
+.extras { color:#ffffff; }
+.extras h3 { font-size:14px; }
+.extras p, .extras li { font-size:12px; }
+.extras ul, .extras ol { padding-left:25px; }
 footer p {
   font-size:12px;
   color:#777777;

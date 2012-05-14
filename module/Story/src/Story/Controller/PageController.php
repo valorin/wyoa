@@ -29,9 +29,23 @@ class PageController extends ActionController
      */
     public function indexAction()
     {
+        /**
+         * Retrieve page id
+         */
         $nPage = $this->getEvent()->getRouteMatch()->getParam('id', 1);
 
-        return Array('nPage' => $nPage);
+
+        /**
+         * Load Page
+         */
+        $oPage = $this->_oPageTable->get($nPage);
+
+
+        /**
+         * Return page to layout and view
+         */
+        $this->layout()->oPage = $oPage;
+        return Array('oPage' => $oPage);
     }
 
 

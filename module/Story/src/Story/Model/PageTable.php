@@ -3,7 +3,8 @@ namespace Story\Model;
 
 use Zend\Db\TableGateway\TableGateway,
     Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet;
+    Zend\Db\ResultSet\ResultSet,
+    Zend\Db\ResultSet\Row;
 
 /**
  * Story Module - PageTable
@@ -28,5 +29,22 @@ class PageTable extends TableGateway
     public function __construct(Adapter $adapter = null)
     {
         return parent::__construct('page', $adapter);
+    }
+
+
+    /**
+     * Retireve page from the database
+     *
+     * @param   Integer $nId    Page Id
+     * @return  Row
+     */
+    public function get($nId)
+    {
+        /**
+         * Fetch Row
+         */
+        $oRowset = $this->select(array('id' => $nId));
+
+        return $oRowset ? $oRowset->current() : null;
     }
 }
