@@ -18,7 +18,7 @@ $aAllowed = Array('127.0.0.1');
 $sKey     = "abc123";
 if (in_array($_SERVER['REMOTE_ADDR'], $aAllowed)
     && isset($_GET['key']) && $_GET['key'] == $sKey) {
-    $aReturn['modules'][] = 'Version';
+    $aReturn['modules'][] = 'ValVersion';
 }
 
 return $aReturn;
