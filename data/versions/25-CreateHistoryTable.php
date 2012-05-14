@@ -1,7 +1,7 @@
 <?php
 namespace Application\Version;
 use Zend\Db\Adapter\Adapter,
-    Version\Model\AbstractVersion;
+    ValVersion\Model\AbstractVersion;
 
 /**
  * Version Script - Create History Table
@@ -29,7 +29,7 @@ class CreateHistoryTable extends AbstractVersion
 CREATE TABLE `history` (
     `id`                BIGINT UNSIGNED AUTO_INCREMENT NOT NULL,
     `user_id`           BIGINT UNSIGNED NOT NULL,
-    `type`              ENOM('page', 'choice'),
+    `type`              ENUM('page', 'choice'),
     `page_id`           BIGINT UNSIGNED DEFAULT NULL,
     `choice_id`         BIGINT UNSIGNED DEFAULT NULL,
     `description`       VARCHAR(255) NOT NULL,

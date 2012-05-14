@@ -1,7 +1,7 @@
 <?php
 namespace Application\Version;
 use Zend\Db\Adapter\Adapter,
-    Version\Model\AbstractVersion;
+    ValVersion\Model\AbstractVersion;
 
 /**
  * Version Script - Create Book Table
