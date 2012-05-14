@@ -3,6 +3,10 @@ $aReturn = array(
     'modules' => array(
         'Application',
         'Story',
+        'ValCommon',
+//        'EdpSuperluminal',
+//        'EdpMarkdown',
+//        'ZendDeveloperTools',
     ),
     'module_listener_options' => array(
         'config_cache_enabled' => false,

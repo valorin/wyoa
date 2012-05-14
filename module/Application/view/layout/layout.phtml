@@ -1,5 +1,5 @@
 <?php
-use Application\Model\Settings;
+use ValCommon\Tools\Setting;
 
 $this->headTitle()->setSeparator(' - ')
                   ->setAutoEscape(false);
@@ -9,13 +9,16 @@ echo $this->doctype()."\n";
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle(Settings::get('title'))."\n"; ?>
+    <?php echo $this->headTitle(Setting::get('title'))."\n"; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
     <!-- Styles -->
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="<?php echo $this->basePath('/css/styles.css'); ?>" rel="stylesheet" type="text/css" >
+<?php /*
     <link href="<?php echo $this->basePath('/css/styles.less'); ?>" rel="stylesheet/less" type="text/css" >
     <script type="text/javascript" src="<?php echo $this->basePath('/js/less.min.js'); ?>"></script>
+*/ ?>
 
     <!-- Scripts -->
     <!--[if lt IE9]> <script type="text/javascript" src="<?php echo $this->basePath('/js/html5.js'); ?>"></script><![endif]-->
@@ -25,8 +28,8 @@ echo $this->doctype()."\n";
 
     <header>
       <h1>
-        <a href='<?php echo $this->url('home'); ?>'><?php echo Settings::get('title'); ?></a>
-        <small><?php echo Settings::get('tagline'); ?></small>
+        <a href='<?php echo $this->url('home'); ?>'><?php echo Setting::get('title'); ?></a>
+        <small><?php echo Setting::get('tagline'); ?></small>
       </h1>
     </header>
 
@@ -64,9 +67,9 @@ echo $this->doctype()."\n";
         <p>
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
             <br />
-            All <strong>"<?php echo Settings::get('title'); ?>"</strong> user content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+            All <strong>"<?php echo Setting::get('title'); ?>"</strong> user content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
             <br />
-            <strong>"<?php echo Settings::get('title'); ?>"</strong> was created by <a href='http://stephen.rees-carter.net/'>Stephen Rees-Carter</a>
+            <strong>"<?php echo Setting::get('title'); ?>"</strong> was created by <a href='http://stephen.rees-carter.net/'>Stephen Rees-Carter</a>
             and can be found on <a href='https://github.com/valorin/wyoa'>Github</a>.
         </p>
     </footer>
