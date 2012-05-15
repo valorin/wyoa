@@ -1,4 +1,11 @@
-<div id='page<?php $oPage->id; ?>'>
-  <h2><?php echo $oPage->title; ?></h2>
-
-</div>
+<article class='page' id='page<?php $oPage->id; ?>'>
+    <h2><?php echo $oPage->title; ?></h2>
+    <div class='story markdown'>
+        <?php echo $this->markdown($this->special($oPage->getStory())); ?>
+    </div>
+    <ul class='choices'>
+      <?php foreach ($oPage->getChoices() as $oChoice): ?>
+        <li><a href='#'><?php echo $oChoice->description; ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+</article>

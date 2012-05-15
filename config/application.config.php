@@ -4,8 +4,8 @@ $aReturn = array(
         'Application',
         'Story',
         'ValCommon',
+        'EdpMarkdown',
 //        'EdpSuperluminal',
-//        'EdpMarkdown',
 //        'ZendDeveloperTools',
     ),
     'module_listener_options' => array(

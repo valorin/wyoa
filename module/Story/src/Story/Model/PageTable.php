@@ -1,10 +1,10 @@
 <?php
 namespace Story\Model;
 
-use Zend\Db\TableGateway\TableGateway,
+use Story\Model\Page,
+    Zend\Db\TableGateway\TableGateway,
     Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet,
-    Zend\Db\ResultSet\Row;
+    Zend\Db\ResultSet\ResultSet;
 
 /**
  * Story Module - PageTable
@@ -19,6 +19,12 @@ use Zend\Db\TableGateway\TableGateway,
 class PageTable extends TableGateway
 {
     /**
+     * @var PageVersionTable
+     */
+    protected $_oPageVersionTable;
+
+
+    /**
      * Constructor
      *
      * @param String    $tableName
@@ -26,9 +32,27 @@ class PageTable extends TableGateway
      * @param String    $schema
      * @param ResultSet $selectResultPrototype
      */
-    public function __construct(Adapter $adapter = null)
+    public function __construct(Adapter $adapter = null,
+        $oPageVersionTable = null)
     {
-        return parent::__construct('page', $adapter);
+        /**
+         * Run parent constructor
+         */
+        parent::__construct('page', $adapter);
+
+
+        /**
+         * Save Variables
+         */
+        $this->_oPageVersionTable = $oPageVersionTable;
+
+
+        /**
+         * Set up the Page Row Object
+         */
+        $oPage = new Page($this, 'id');
+        $oPage->setPageVersionTable($oPageVersionTable);
+        $this->setSelectResultPrototype(new ResultSet($oPage));
     }
 
 
@@ -44,7 +68,6 @@ class PageTable extends TableGateway
          * Fetch Row
          */
         $oRowset = $this->select(array('id' => $nId));
-
         return $oRowset ? $oRowset->current() : null;
     }
 }

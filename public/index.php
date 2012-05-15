@@ -3,11 +3,6 @@ chdir(dirname(__DIR__));
 require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
 Zend\Loader\AutoloaderFactory::factory();
 
-// Start EdpSuperluminal Module
-define('ZF_CLASS_CACHE', 'data/cache/classes.php.cache');
-if (file_exists(ZF_CLASS_CACHE)) require_once ZF_CLASS_CACHE;
-// End EdpSuperluminal Module
-
 $appConfig = include 'config/application.config.php';
 
 $sharedEvents     = new Zend\EventManager\SharedEventManager();

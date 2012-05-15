@@ -40,24 +40,22 @@ echo $this->doctype()."\n";
         <aside>
             <h3>The story so far...</h3>
             <ol>
-                <li><a href='#'>Once upon a time...</a></li>
-                <li><a href='#'>Three little pigs</a></li>
-                <li><a href='#'>Blah</a></li>
-                <li><a href='#'>Three little pigs</a></li>
-                <li><a href='#'>Once upon a time...</a></li>
-                <li><a href='#'>Three little pigs</a></li>
-                <li><a href='#'>Blah</a></li>
-                <li><a href='#'>Three little pigs</a></li>
+                <li><a href='#'>...</a></li>
             </ol>
         </aside><aside>
             <h3>Page Information</h3>
             <ul>
                 <li>Page #<?php echo $oPage->id; ?></li>
-                <li>Last Updated: <?php echo $oPage->updated; ?></li>
+                <li>Visits: <?php echo $oPage->visits; ?></li>
+                <li>Created: <?php echo $oPage->created; ?></li>
+                <li>Created by: <?php echo $oPage->user_id; ?></li>
+                <li>Updated: <?php echo $oPage->updated; ?></li>
+                <li>Updated by: </li>
+                <li><a href='#edit'>Edit Page</a></li>
             </ul>
         </aside><aside>
             <h3>User Information</h3>
-            <p><em>Not logged in</em></p>
+            <p><em>Not logged in.</em></p>
         </aside>
       </div>
     </div>

@@ -194,6 +194,14 @@ header h1 small {
 .extras h3 { font-size:14px; }
 .extras p, .extras li { font-size:12px; }
 .extras ul, .extras ol { padding-left:25px; }
+.extras a {
+  text-decoration:none;
+  color:#dd4814;
+}
+.extras a:hover {
+  text-decoration:underline;
+  color:#ef784e;
+}
 footer p {
   font-size:12px;
   color:#777777;
