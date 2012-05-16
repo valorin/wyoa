@@ -13,6 +13,4 @@
 [submodule "vendor/EdpMarkdown"]
 	path = vendor/EdpMarkdown
 	url = git://github.com/EvanDotPro/EdpMarkdown.git
-[submodule "vendor/EdpSuperluminal"]
-	path = vendor/EdpSuperluminal
-	url = git://github.com/EvanDotPro/EdpSuperluminal.git
+
