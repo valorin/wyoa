@@ -1,16 +1,15 @@
 [submodule "vendor/ZendFramework"]
-	path = vendor/ZendFramework
-	url = git://github.com/zendframework/zf2.git	
+    path = vendor/ZendFramework
+    url = git://github.com/zendframework/zf2.git
 [submodule "vendor/ValVersion"]
-	path = vendor/ValVersion
-	url = git://github.com/valorin/ValVersion.git
+    path = vendor/ValVersion
+    url = git://github.com/valorin/ValVersion.git
 [submodule "vendor/ValCommon"]
-	path = vendor/ValCommon
-	url = git@github.com:valorin/ValCommon.git
+    path = vendor/ValCommon
+    url = git@github.com:valorin/ValCommon.git
 [submodule "vendor/ZendDeveloperTools"]
-	path = vendor/ZendDeveloperTools
-	url = git://github.com/zendframework/ZendDeveloperTools.git
+    path = vendor/ZendDeveloperTools
+    url = git://github.com/zendframework/ZendDeveloperTools.git
 [submodule "vendor/EdpMarkdown"]
-	path = vendor/EdpMarkdown
-	url = git://github.com/EvanDotPro/EdpMarkdown.git
-
+    path = vendor/EdpMarkdown
+    url = git://github.com/EvanDotPro/EdpMarkdown.git

@@ -10,7 +10,6 @@ $listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_
 $defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
 $defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.php");
 
-
 $moduleManager = new Zend\Module\Manager($appConfig['modules']);
 $events        = $moduleManager->events();
 $events->setSharedManager($sharedEvents);
