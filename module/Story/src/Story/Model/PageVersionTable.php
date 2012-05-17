@@ -1,8 +1,7 @@
 <?php
 namespace Story\Model;
 
-use Story\Model\Page,
-    Zend\Db\TableGateway\TableGateway,
+use Zend\Db\TableGateway\TableGateway,
     Zend\Db\Adapter\Adapter,
     Zend\Db\ResultSet\ResultSet;
 

@@ -1,9 +1,7 @@
 <?php
 namespace Story\Model;
 
-use Story\Model\Page,
-    Story\Model\User,
-    Zend\Db\TableGateway\TableGateway,
+use Zend\Db\TableGateway\TableGateway,
     Zend\Db\RowGateway\RowGateway;
 
 /**
@@ -23,11 +21,16 @@ class Page extends RowGateway
      */
     protected $_oPageVersionTable;
 
+    /**
+     * @var ChoiceTable
+     */
+    protected $_choiceTable;
+
 
     /**
      * Retrieve the current story text
      *
-     * @return  String
+     * @return  String|Null
      */
     public function getStory()
     {
@@ -48,21 +51,35 @@ class Page extends RowGateway
 
 
         /**
-         * Create new row
+         * Return null if no story found
          */
-        return "";
+        return null;
     }
 
 
     /**
      * Retrieve the page choices
      *
-     * @param   Boolean $bAll   Return all, or honour 'chance' value
      * @return  Array
      */
-    public function getChoices($bAll = false)
+    public function getChoices()
     {
-        return Array();
+        return $this->_choiceTable->get($this);
+    }
+
+
+    /**
+     * Increment the number of visits
+     *
+     * @TODO: Fix row data update when ZF2 supports it
+     * @return  Page
+     */
+    public function incrementVisits()
+    {
+        $this->populateCurrentData(Array('visits' => $this->visits + 1));
+        $this->save();
+
+        return $this;
     }
 
 
@@ -108,6 +125,7 @@ class Page extends RowGateway
         return $this;
     }
 
+
     /**
      * Set the 'page_version' table gateway
      *
@@ -117,6 +135,19 @@ class Page extends RowGateway
     public function setPageVersionTable($oPageVersionTable)
     {
         $this->_oPageVersionTable = $oPageVersionTable;
+        return $this;
+    }
+
+
+    /**
+     * Set the 'choice' table gateway
+     *
+     * @param   ChoiceTable    $choiceTable
+     * @return  Page
+     */
+    public function setChoiceTable(ChoiceTable $choiceTable)
+    {
+        $this->_choiceTable = $choiceTable;
         return $this;
     }
 }

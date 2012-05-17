@@ -1,8 +1,7 @@
 <?php
 namespace Story\Model;
 
-use Story\Model\Page,
-    Zend\Db\TableGateway\TableGateway,
+use Zend\Db\TableGateway\TableGateway,
     Zend\Db\Adapter\Adapter,
     Zend\Db\ResultSet\ResultSet;
 
@@ -23,17 +22,21 @@ class PageTable extends TableGateway
      */
     protected $_oPageVersionTable;
 
+    /**
+     * @var ChoiceTable
+     */
+    protected $_choiceTable;
+
 
     /**
      * Constructor
      *
-     * @param String    $tableName
-     * @param Adapter   $adapter
-     * @param String    $schema
-     * @param ResultSet $selectResultPrototype
+     * @param   Adapter             $adapter
+     * @param   PageVersionTable    $oPageVersionTable
+     * @param   ChoiceTable         $choiceTable
      */
     public function __construct(Adapter $adapter = null,
-        $oPageVersionTable = null)
+        $oPageVersionTable = null, ChoiceTable $choiceTable = null)
     {
         /**
          * Run parent constructor
@@ -45,13 +48,15 @@ class PageTable extends TableGateway
          * Save Variables
          */
         $this->_oPageVersionTable = $oPageVersionTable;
+        $this->_choiceTable       = $choiceTable;
 
 
         /**
          * Set up the Page Row Object
          */
         $oPage = new Page($this, 'id');
-        $oPage->setPageVersionTable($oPageVersionTable);
+        $oPage->setPageVersionTable($oPageVersionTable)
+              ->setChoiceTable($this->_choiceTable);
         $this->setSelectResultPrototype(new ResultSet($oPage));
     }
 

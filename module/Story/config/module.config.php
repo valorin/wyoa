@@ -14,6 +14,7 @@ return array(
                 'parameters' => array(
                     'adapter'           => 'Zend\Db\Adapter\Adapter',
                     'oPageVersionTable' => 'Story\Model\PageVersionTable',
+                    'choiceTable'       => 'Story\Model\ChoiceTable',
                 ),
             ),
             'Story\Model\PageVersionTable' => array(

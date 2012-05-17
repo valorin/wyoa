@@ -39,6 +39,7 @@ class PageController extends ActionController
          * Load Page
          */
         $oPage = $this->_oPageTable->get($nPage);
+        $oPage->incrementVisits();
 
 
         /**

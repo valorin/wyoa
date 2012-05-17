@@ -28,5 +28,32 @@ class ChoiceTable extends TableGateway
          * Run parent constructor
          */
         parent::__construct('choice', $adapter);
+
+
+        /**
+         * Set up the Choice Row
+         */
+        $this->setSelectResultPrototype(new ResultSet(new Choice($this, 'id')));
+    }
+
+
+    /**
+     * Retrieve choices based on the condition and chance
+     *
+     * @param   Page|Integer    $xCondition Condition to apply
+     * @return  ResultSet
+     */
+    public function get($xCondition)
+    {
+        /**
+         * Retrieve ResultSet
+         */
+        if ($xCondition instanceof Page) {
+            return $this->select(Array('page_id = ?' => $xCondition->id));
+        } elseif (is_numeric($xCondition)) {
+            return $this->select(Array('id = ?' => $xCondition));
+        }
+
+        return null;
     }
 }

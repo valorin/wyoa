@@ -5,6 +5,7 @@
     </div>
     <ul class='choices'>
       <?php foreach ($oPage->getChoices() as $oChoice): ?>
+        <?php if (!$oChoice->checkChance()) continue; ?>
         <li><a href='#'><?php echo $oChoice->description; ?></a></li>
       <?php endforeach; ?>
     </ul>
