@@ -21,6 +21,11 @@ return array(
                     'adapter'           => 'Zend\Db\Adapter\Adapter',
                 ),
             ),
+            'Story\Model\ChoiceTable' => array(
+                'parameters' => array(
+                    'adapter'           => 'Zend\Db\Adapter\Adapter',
+                ),
+            ),
             'Story\View\Helper\Special' => Array(
                 'parameters' => Array(
                     'sDir' => __DIR__ .'/../view/special',

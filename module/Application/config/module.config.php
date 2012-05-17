@@ -2,8 +2,18 @@
 return array(
     'di' => array(
         'instance' => array(
+            'alias' => array(
+                'import' => 'Application\Controller\ImportController',
+            ),
 
             // Setup for controllers.
+            'Application\Controller\ImportController' => Array(
+                'parameters' => Array(
+                    'adapter'      => 'Zend\Db\Adapter\Adapter',
+                    'oPageTable'   => 'Story\Model\PageTable',
+                    'oChoiceTable' => 'Story\Model\ChoiceTable',
+                ),
+            ),
 
             // Injecting the plugin broker for controller plugins into
             // the action controller for use by all controllers that

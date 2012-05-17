@@ -1,7 +1,8 @@
 <?php
 namespace Story\Model;
 
-use Zend\Db\TableGateway\TableGateway,
+use Story\Model\Page,
+    Zend\Db\TableGateway\TableGateway,
     Zend\Db\Adapter\Adapter,
     Zend\Db\ResultSet\ResultSet;
 
@@ -31,5 +32,30 @@ class PageVersionTable extends TableGateway
          * Run parent constructor
          */
         parent::__construct('page_version', $adapter);
+    }
+
+
+    /**
+     * Sets all page versions as inactive for the specified page
+     *
+     * @param   Page|Integer    $page   Page Id or Row
+     * @return  PageVersionTable
+     */
+    public function setInactive($page)
+    {
+        /**
+         * Check page instance
+         */
+        if ($page instanceof Page) {
+            $page = $page->id;
+        }
+
+
+        /**
+         * Update records
+         */
+        $this->update(Array('active' => 0), Array('page_id = ?' => $page));
+
+        return $this;
     }
 }

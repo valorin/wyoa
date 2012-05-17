@@ -54,7 +54,7 @@ class PageController extends ActionController
      *
      * @param  Story\Model\PageTable    $oPageTable
      */
-    public function setAlbumTable(PageTable $oPageTable)
+    public function setPageTable(PageTable $oPageTable)
     {
         $this->_oPageTable = $oPageTable;
         return $this;
