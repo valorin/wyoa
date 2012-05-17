@@ -57,12 +57,14 @@ SQL;
 CREATE TABLE `page_version` (
     `id`        BIGINT UNSIGNED AUTO_INCREMENT NOT NULL,
     `page_id`   BIGINT UNSIGNED NOT NULL,
+    `user_id`   BIGINT UNSIGNED DEFAULT NULL,
     `story`     LONGTEXT NOT NULL,
     `active`    TINYINT DEFAULT 1,
     `timestamp` TIMESTAMP,
     PRIMARY KEY (`id`),
     KEY (`page_id`),
-    FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE
+    FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL
 ) ENGINE=INNODB
 SQL;
 
