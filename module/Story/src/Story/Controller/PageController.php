@@ -39,6 +39,16 @@ class PageController extends ActionController
          * Load Page
          */
         $oPage = $this->_oPageTable->get($nPage);
+
+        if (!$oPage) {
+            return Array();
+        }
+
+
+        /**
+         * Increment Visits Counter
+         * TODO: Add History record
+         */
         $oPage->incrementVisits();
 
 
@@ -47,6 +57,16 @@ class PageController extends ActionController
          */
         $this->layout()->oPage = $oPage;
         return Array('oPage' => $oPage);
+    }
+
+
+    /**
+     * Create new page Action
+     *
+     */
+    public function newAction()
+    {
+
     }
 
 
