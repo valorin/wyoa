@@ -1,16 +1,7 @@
 <?php
+
 namespace Application;
 
-/**
- * Application Module
- *
- * Base Module for the Application
- *
- * @package     WYOA
- * @subpackage  Application\Module
- * @copyright   Copyright (c) 2012, Stephen Rees-Carter <http://src.id.au/>
- * @license     New BSD Licence, see LICENCE.txt
- */
 class Module
 {
     public function getAutoloaderConfig()
