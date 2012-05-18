@@ -35,7 +35,7 @@ class Choice extends RowGateway
      */
     public function incrementVisits()
     {
-        $this->populateCurrentData(Array('visits' => $this->visits + 1));
+        $this->populate(Array('visits' => $this->visits + 1));
         $this->save();
 
         return $this;

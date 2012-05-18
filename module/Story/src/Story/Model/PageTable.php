@@ -54,7 +54,7 @@ class PageTable extends TableGateway
         /**
          * Set up the Page Row Object
          */
-        $oPage = new Page('id', $this, $adapter);
+        $oPage = new Page('id', $this->getTable(), $adapter);
         $oPage->setPageVersionTable($oPageVersionTable)
               ->setChoiceTable($this->_choiceTable);
         $this->setSelectResultPrototype(new ResultSet($oPage));

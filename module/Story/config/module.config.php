@@ -4,8 +4,7 @@ return array(
         'instance' => array(
             'Story\Controller\PageController' => array(
                 'parameters' => array(
-                    'test'       => "AAA",
-                    'oPageTable' => 'Story\Model\PageTable',
+                    'pageTable' => 'Story\Model\PageTable',
                 ),
             ),
             'Story\Controller\ChoiceController' => Array(

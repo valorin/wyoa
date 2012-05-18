@@ -34,7 +34,7 @@ class ChoiceTable extends TableGateway
          * Set up the Choice Row
          */
         $this->setSelectResultPrototype(
-            new ResultSet(new Choice('id', $this, $adapter))
+            new ResultSet(new Choice('id', $this->getTable(), $adapter))
         );
     }
 

@@ -32,7 +32,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'PageController',
+                        'controller' => 'Story\Controller\PageController',
                         'action'     => 'index',
                     ),
                 ),

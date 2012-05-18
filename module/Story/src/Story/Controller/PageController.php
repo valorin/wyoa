@@ -20,7 +20,7 @@ class PageController extends ActionController
     /**
      * @var Story\Model\PageTable
      */
-    protected $_oPageTable;
+    protected $_pageTable;
 
 
     /**
@@ -38,7 +38,7 @@ class PageController extends ActionController
         /**
          * Load Page
          */
-        $oPage = $this->_oPageTable->get($nPage);
+        $oPage = $this->_pageTable->get($nPage);
 
         if (!$oPage) {
             return Array();
@@ -49,7 +49,7 @@ class PageController extends ActionController
          * Increment Visits Counter
          * TODO: Add History record
          */
-        $oPage->incrementVisits();
+        //$oPage->incrementVisits();
 
 
         /**
@@ -69,21 +69,15 @@ class PageController extends ActionController
 
     }
 
-    public function setTest($test)
-    {
-        die($test);
-    }
-
 
     /**
      * Inject PageTable Class
      *
-     * @param  PageTable    $oPageTable
+     * @param  PageTable    $pageTable
      */
-    public function setPageTable(PageTable $oPageTable)
+    public function setPageTable($pageTable)
     {
-        die("!!");
-        $this->_oPageTable = $oPageTable;
+        $this->_pageTable = $pageTable;
         return $this;
     }
 }
