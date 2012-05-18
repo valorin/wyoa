@@ -12,4 +12,4 @@
     url = git://github.com/zendframework/ZendDeveloperTools.git
 [submodule "vendor/EdpMarkdown"]
     path = vendor/EdpMarkdown
-    url = git://github.com/EvanDotPro/EdpMarkdown.git
+    url = git://github.com/valorin/EdpMarkdown.git
