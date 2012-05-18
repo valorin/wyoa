@@ -51,7 +51,7 @@ class ChoiceTable extends TableGateway
         if ($xCondition instanceof Page) {
             return $this->select(Array('page_id = ?' => $xCondition->id));
         } elseif (is_numeric($xCondition)) {
-            return $this->select(Array('id = ?' => $xCondition));
+            return $this->select(Array('id = ?' => $xCondition))->current();
         }
 
         return null;

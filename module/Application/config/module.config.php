@@ -48,22 +48,6 @@ return array(
                                 ),
                             ),
                         ),
-                        'page' => array(
-                            'type'    => 'Zend\Mvc\Router\Http\Segment',
-                            'options' => array(
-                                'route'    => '/page/[:id[/:action]]',
-                                'constraints' => array(
-                                    'id'     => '[0-9]*',
-                                    'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                ),
-                                'defaults' => array(
-                                    'controller' =>
-                                            'Story\Controller\PageController',
-                                    'action'     => 'index',
-                                    'id'         => 1,
-                                ),
-                            ),
-                        ),
                         'home' => array(
                             'type' => 'Zend\Mvc\Router\Http\Literal',
                             'options' => array(

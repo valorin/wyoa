@@ -25,4 +25,19 @@ class Choice extends RowGateway
     {
         return ($this->chance >= mt_rand(0, 100));
     }
+
+
+    /**
+     * Increment the number of visits
+     *
+     * @TODO: Fix row data update when ZF2 supports it
+     * @return  Page
+     */
+    public function incrementVisits()
+    {
+        $this->populateCurrentData(Array('visits' => $this->visits + 1));
+        $this->save();
+
+        return $this;
+    }
 }
