@@ -31,7 +31,7 @@ return array(
             ),
             'Story\View\Helper\Special' => Array(
                 'parameters' => Array(
-                    'sDir' => __DIR__ .'/../view/special',
+                    'sDir' => __DIR__ .'/../view/story/special',
                 ),
             ),
         ),
