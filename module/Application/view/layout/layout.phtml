@@ -44,6 +44,7 @@ echo $this->doctype()."\n";
             </ol>
         </aside><aside>
             <h3>Page Information</h3>
+          <?php if (isset($oPage)): ?>
             <ul>
                 <li>Page #<?php echo $oPage->id; ?></li>
                 <li>Visits: <?php echo $oPage->visits; ?></li>
@@ -53,6 +54,9 @@ echo $this->doctype()."\n";
                 <li>Updated by: </li>
                 <li><a href='#edit'>Edit Page</a></li>
             </ul>
+          <?php else: ?>
+            <p><em>No page information to display.</em></p>
+          <?php endif; ?>
         </aside><aside>
             <h3>User Information</h3>
             <p><em>Not logged in.</em></p>
