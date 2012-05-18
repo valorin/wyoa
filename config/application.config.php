@@ -15,6 +15,11 @@ $aReturn = array(
             './vendor',
         ),
     ),
+    'service_manager' => array(
+        'use_defaults' => true,
+        'factories'    => array(
+        ),
+    ),
 );
 
 $aAllowed = Array('127.0.0.1');

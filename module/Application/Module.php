@@ -1,10 +1,5 @@
 <?php
-
 namespace Application;
-
-use Zend\Module\Manager,
-    Zend\EventManager\StaticEventManager,
-    Zend\Module\Consumer\AutoloaderProvider;
 
 /**
  * Application Module
@@ -16,17 +11,8 @@ use Zend\Module\Manager,
  * @copyright   Copyright (c) 2012, Stephen Rees-Carter <http://src.id.au/>
  * @license     New BSD Licence, see LICENCE.txt
  */
-class Module implements AutoloaderProvider
+class Module
 {
-    public function init(Manager $moduleManager)
-    {
-        $events       = $moduleManager->events();
-        $sharedEvents = $events->getSharedManager();
-        $sharedEvents->attach(
-            'bootstrap', 'bootstrap', array($this, 'initializeView'), 100
-        );
-    }
-
     public function getAutoloaderConfig()
     {
         return array(
@@ -44,15 +30,5 @@ class Module implements AutoloaderProvider
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
-    }
-
-
-    public function initializeView($e)
-    {
-        $app      = $e->getParam('application');
-        $basePath = $app->getRequest()->getBasePath();
-        $locator  = $app->getLocator();
-        $renderer = $locator->get('Zend\View\Renderer\PhpRenderer');
-        $renderer->plugin('basePath')->setBasePath($basePath);
     }
 }

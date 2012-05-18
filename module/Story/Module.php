@@ -1,8 +1,6 @@
 <?php
 namespace Story;
 
-use Zend\Module\Consumer\AutoloaderProvider;
-
 /**
  * Story Module
  *
@@ -13,7 +11,7 @@ use Zend\Module\Consumer\AutoloaderProvider;
  * @copyright   Copyright (c) 2012, Stephen Rees-Carter <http://src.id.au/>
  * @license     New BSD Licence, see LICENCE.txt
  */
-class Module implements AutoloaderProvider
+class Module
 {
     public function getAutoloaderConfig()
     {

@@ -2,11 +2,9 @@
 return array(
     'di' => array(
         'instance' => array(
-            'alias' => array(
-                'page' => 'Story\Controller\PageController',
-            ),
             'Story\Controller\PageController' => array(
                 'parameters' => array(
+                    'test'       => "AAA",
                     'oPageTable' => 'Story\Model\PageTable',
                 ),
             ),
@@ -37,82 +35,66 @@ return array(
                     'sDir' => __DIR__ .'/../view/special',
                 ),
             ),
-            'Zend\View\Resolver\TemplatePathStack' => array(
-                'parameters' => array(
-                    'paths'  => array(
-                        'album' => __DIR__ . '/../view',
+        ),
+    ),
+    'router' => array(
+        'routes' => array(
+            'page' => array(
+                'type'    => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/page/[:id[/:choice]]',
+                    'constraints' => array(
+                        'id'     => '[0-9]*',
+                        'choice' => '[0-9]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Story\Controller\PageController',
+                        'action'     => 'index',
+                        'id'         => 1,
                     ),
                 ),
             ),
-            'Zend\View\HelperLoader' => array(
-                'parameters' => array(
-                    'map' => array(
-                        'special' => 'Story\View\Helper\Special',
+            'newpage' => array(
+                'type'    => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/page/new[/:choice]',
+                    'constraints' => array(
+                        'choice' => '[0-9]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Story\Controller\PageController',
+                        'action'     => 'new',
+                        'choice'     => null,
                     ),
                 ),
             ),
-            'Zend\View\PhpRenderer' => array(
-                'parameters' => array(
-                    'broker' => 'Zend\View\HelperBroker',
-                ),
-            ),
-            'Zend\View\HelperBroker' => array(
-                'parameters' => array(
-                    'loader' => 'Zend\View\HelperLoader',
-                ),
-            ),
-            // Setup for router and routes
-            'Zend\Mvc\Router\RouteStackInterface' => array(
-                'parameters' => array(
-                    'routes' => array(
-                        'page' => array(
-                            'type'    => 'Zend\Mvc\Router\Http\Segment',
-                            'options' => array(
-                                'route'    => '/page/[:id[/:choice]]',
-                                'constraints' => array(
-                                    'id'     => '[0-9]*',
-                                    'choice' => '[0-9]*',
-                                ),
-                                'defaults' => array(
-                                    'controller' =>
-                                            'Story\Controller\PageController',
-                                    'action'     => 'index',
-                                    'id'         => 1,
-                                ),
-                            ),
-                        ),
-                        'newpage' => array(
-                            'type'    => 'Zend\Mvc\Router\Http\Segment',
-                            'options' => array(
-                                'route'    => '/page/new[/:choice]',
-                                'constraints' => array(
-                                    'choice' => '[0-9]*',
-                                ),
-                                'defaults' => array(
-                                    'controller' =>
-                                            'Story\Controller\PageController',
-                                    'action'     => 'new',
-                                    'choice'     => null,
-                                ),
-                            ),
-                        ),
-                        'choice' => array(
-                            'type'    => 'Zend\Mvc\Router\Http\Segment',
-                            'options' => array(
-                                'route'    => '/choice/:id',
-                                'constraints' => array(
-                                    'id'     => '[0-9]*',
-                                ),
-                                'defaults' => array(
-                                    'controller' =>
-                                            'Story\Controller\ChoiceController',
-                                    'action'     => 'index',
-                                ),
-                            ),
-                        ),
+            'choice' => array(
+                'type'    => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/choice/:id',
+                    'constraints' => array(
+                        'id'     => '[0-9]*',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Story\Controller\ChoiceController',
+                        'action'     => 'index',
                     ),
                 ),
             ),
+        ),
+    ),
+    'controller' => array(
+        'classes' => array(
+            'PageController'   => 'Story\Controller\PageController',
+            'ChoiceController' => 'Story\Controller\ChoiceController',
+        ),
+    ),
+    'view_manager' => array(
+        'template_path_stack' => array(
+            'application' => __DIR__ . '/../view',
+        ),
+        'helper_map' => array(
+            'special' => 'Story\View\Helper\Special',
         ),
     ),
 );

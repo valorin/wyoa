@@ -69,14 +69,20 @@ class PageController extends ActionController
 
     }
 
+    public function setTest($test)
+    {
+        die($test);
+    }
+
 
     /**
      * Inject PageTable Class
      *
-     * @param  Story\Model\PageTable    $oPageTable
+     * @param  PageTable    $oPageTable
      */
     public function setPageTable(PageTable $oPageTable)
     {
+        die("!!");
         $this->_oPageTable = $oPageTable;
         return $this;
     }
