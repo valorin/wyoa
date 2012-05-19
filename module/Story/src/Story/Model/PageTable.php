@@ -18,46 +18,15 @@ use Zend\Db\TableGateway\TableGateway,
 class PageTable extends TableGateway
 {
     /**
-     * @var PageVersionTable
-     */
-    protected $_oPageVersionTable;
-
-    /**
-     * @var ChoiceTable
-     */
-    protected $_choiceTable;
-
-
-    /**
      * Constructor
      *
-     * @param   Adapter             $adapter
-     * @param   PageVersionTable    $oPageVersionTable
-     * @param   ChoiceTable         $choiceTable
+     * @param Adapter $adapter
+     * @param ResultSet $selectResultPrototype
+     * @param Sql\Sql $selectResultPrototype
      */
-    public function __construct(Adapter $adapter = null,
-        $oPageVersionTable = null, ChoiceTable $choiceTable = null)
+    public function __construct(Adapter $adapter, Page $page)
     {
-        /**
-         * Run parent constructor
-         */
-        parent::__construct('page', $adapter);
-
-
-        /**
-         * Save Variables
-         */
-        $this->_oPageVersionTable = $oPageVersionTable;
-        $this->_choiceTable       = $choiceTable;
-
-
-        /**
-         * Set up the Page Row Object
-         */
-        $oPage = new Page('id', $this->getTable(), $adapter);
-        $oPage->setPageVersionTable($oPageVersionTable)
-              ->setChoiceTable($this->_choiceTable);
-        $this->setSelectResultPrototype(new ResultSet($oPage));
+        return parent::__construct('page', $adapter, new ResultSet($page));
     }
 
 

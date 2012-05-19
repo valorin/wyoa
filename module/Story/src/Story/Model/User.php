@@ -1,7 +1,8 @@
 <?php
 namespace Story\Model;
 
-use Zend\Db\RowGateway\RowGateway;
+use Zend\Db\RowGateway\RowGateway,
+    Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - User Object (Db Row)
@@ -15,4 +16,14 @@ use Zend\Db\RowGateway\RowGateway;
  */
 class User extends RowGateway
 {
+    /**
+     * Constructor
+     *
+     * @param Adapter $adapter
+     * @param Sql\Sql $sql
+     */
+    public function __construct(Adapter $adapter = null)
+    {
+        return parent::__construct('id', 'user', $adapter);
+    }
 }

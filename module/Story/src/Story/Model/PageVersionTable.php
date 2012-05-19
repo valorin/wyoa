@@ -2,8 +2,7 @@
 namespace Story\Model;
 
 use Zend\Db\TableGateway\TableGateway,
-    Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet;
+    Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - PageVersionTable
@@ -20,17 +19,13 @@ class PageVersionTable extends TableGateway
     /**
      * Constructor
      *
-     * @param String    $tableName
-     * @param Adapter   $adapter
-     * @param String    $schema
+     * @param Adapter $adapter
      * @param ResultSet $selectResultPrototype
+     * @param Sql\Sql $selectResultPrototype
      */
-    public function __construct(Adapter $adapter = null)
+    public function __construct(Adapter $adapter)
     {
-        /**
-         * Run parent constructor
-         */
-        parent::__construct('page_version', $adapter);
+        return parent::__construct('page_version', $adapter);
     }
 
 

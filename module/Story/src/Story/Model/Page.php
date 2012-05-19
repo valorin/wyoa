@@ -2,7 +2,8 @@
 namespace Story\Model;
 
 use Zend\Db\TableGateway\TableGateway,
-    Zend\Db\RowGateway\RowGateway;
+    Zend\Db\RowGateway\RowGateway,
+    Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - Page Object (Db Row)
@@ -19,12 +20,23 @@ class Page extends RowGateway
     /**
      * @var PageVersionTable
      */
-    protected $_oPageVersionTable;
+    protected $_pageVersionTable;
 
     /**
      * @var ChoiceTable
      */
     protected $_choiceTable;
+
+
+    /**
+     * Constructor
+     *
+     * @param Adapter $adapter
+     */
+    public function __construct(Adapter $adapter = null)
+    {
+        return parent::__construct('id', 'page', $adapter);
+    }
 
 
     /**
@@ -37,7 +49,7 @@ class Page extends RowGateway
         /**
          * Fetch active page version
          */
-        $oRowset = $this->_oPageVersionTable->select(
+        $oRowset = $this->_pageVersionTable->select(
             Array('active' => 1, 'page_id' => $this->id)
         );
 
@@ -104,13 +116,13 @@ class Page extends RowGateway
         /**
          * Mark current versions as inactive
          */
-        $this->_oPageVersionTable->setInactive($this);
+        $this->_pageVersionTable->setInactive($this);
 
 
         /**
          * Insert new story
          */
-        $this->_oPageVersionTable->insert(
+        $this->_pageVersionTable->insert(
             Array(
                 'page_id' => $this->id,
                 'user_id' => $xUser,
@@ -127,25 +139,23 @@ class Page extends RowGateway
 
 
     /**
-     * Set the 'page_version' table gateway
+     * Inject PageVersionTable Class
      *
-     * @param   TableGateway    $oPageVersionTable
-     * @return  PageTable
+     * @param  PageVersionTable    $pageVersonTable
      */
-    public function setPageVersionTable($oPageVersionTable)
+    public function setPageVersionTable($pageVersionTable)
     {
-        $this->_oPageVersionTable = $oPageVersionTable;
+        $this->_pageVersionTable = $pageVersionTable;
         return $this;
     }
 
 
     /**
-     * Set the 'choice' table gateway
+     * Inject ChoiceTable Class
      *
-     * @param   ChoiceTable    $choiceTable
-     * @return  Page
+     * @param  ChoiceTable  $choiceTable
      */
-    public function setChoiceTable(ChoiceTable $choiceTable)
+    public function setChoiceTable($choiceTable)
     {
         $this->_choiceTable = $choiceTable;
         return $this;

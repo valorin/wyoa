@@ -12,13 +12,6 @@ return array(
                     'choiceTable' => 'Story\Model\ChoiceTable',
                 ),
             ),
-            'Story\Model\PageTable' => array(
-                'parameters' => array(
-                    'adapter'           => 'Zend\Db\Adapter\Adapter',
-                    'oPageVersionTable' => 'Story\Model\PageVersionTable',
-                    'choiceTable'       => 'Story\Model\ChoiceTable',
-                ),
-            ),
             'Story\Model\PageVersionTable' => array(
                 'parameters' => array(
                     'adapter'           => 'Zend\Db\Adapter\Adapter',
@@ -26,7 +19,26 @@ return array(
             ),
             'Story\Model\ChoiceTable' => array(
                 'parameters' => array(
-                    'adapter'           => 'Zend\Db\Adapter\Adapter',
+                    'adapter' => 'Zend\Db\Adapter\Adapter',
+                    'choice'  => 'Story\Model\Choice',
+                ),
+            ),
+            'Story\Model\Choice' => Array(
+                'parameters' => Array(
+                    'adapter'    => 'Zend\Db\Adapter\Adapter',
+                ),
+            ),
+            'Story\Model\PageTable' => array(
+                'parameters' => array(
+                    'adapter' => 'Zend\Db\Adapter\Adapter',
+                    'page'    => 'Story\Model\Page',
+                ),
+            ),
+            'Story\Model\Page' => Array(
+                'parameters' => Array(
+                    'adapter'          => 'Zend\Db\Adapter\Adapter',
+                    'pageVersionTable' => 'Story\Model\PageVersionTable',
+                    'choiceTable'      => 'Story\Model\ChoiceTable',
                 ),
             ),
             'Story\View\Helper\Special' => Array(

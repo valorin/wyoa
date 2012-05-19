@@ -2,7 +2,8 @@
 namespace Story\Model;
 
 use Zend\Db\TableGateway\TableGateway,
-    Zend\Db\RowGateway\RowGateway;
+    Zend\Db\RowGateway\RowGateway,
+    Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - Choice Object (Db Row)
@@ -16,6 +17,18 @@ use Zend\Db\TableGateway\TableGateway,
  */
 class Choice extends RowGateway
 {
+    /**
+     * Constructor
+     *
+     * @param Adapter $adapter
+     * @param Sql\Sql $sql
+     */
+    public function __construct(Adapter $adapter = null)
+    {
+        return parent::__construct('id', 'choice', $adapter);
+    }
+
+
     /**
      * Returns true if a randomly generated number >= the chance value
      *

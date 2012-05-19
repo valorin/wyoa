@@ -20,22 +20,12 @@ class ChoiceTable extends TableGateway
     /**
      * Constructor
      *
-     * @param   Adapter Database Adapter
+     * @param   Adapter $adapter
+     * @param   Choice  $choice
      */
-    public function __construct(Adapter $adapter = null)
+    public function __construct(Adapter $adapter, Choice $choice)
     {
-        /**
-         * Run parent constructor
-         */
-        parent::__construct('choice', $adapter);
-
-
-        /**
-         * Set up the Choice Row
-         */
-        $this->setSelectResultPrototype(
-            new ResultSet(new Choice('id', $this->getTable(), $adapter))
-        );
+        return parent::__construct('choice', $adapter, new ResultSet($choice));
     }
 
 
