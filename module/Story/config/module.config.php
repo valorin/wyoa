@@ -4,12 +4,19 @@ return array(
         'instance' => array(
             'Story\Controller\PageController' => array(
                 'parameters' => array(
-                    'pageTable' => 'Story\Model\PageTable',
+                    'pageTable'      => 'Story\Model\PageTable',
+                    'historyManager' => 'Story\Model\HistoryManager',
                 ),
             ),
             'Story\Controller\ChoiceController' => Array(
                 'parameters' => Array(
-                    'choiceTable' => 'Story\Model\ChoiceTable',
+                    'choiceTable'    => 'Story\Model\ChoiceTable',
+                    'historyManager' => 'Story\Model\HistoryManager',
+                ),
+            ),
+            'Story\Model\HistoryManager' => Array(
+                'parameters' => Array(
+                    'pageTable' => 'Story\Model\PageTable',
                 ),
             ),
             'Story\Model\PageVersionTable' => array(

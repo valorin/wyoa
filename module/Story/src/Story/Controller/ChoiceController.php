@@ -3,7 +3,8 @@ namespace Story\Controller;
 
 use Zend\Mvc\Controller\ActionController,
     Zend\View\Model\ViewModel,
-    Story\Model\ChoiceTable;
+    Story\Model\ChoiceTable,
+    Story\Model\HistoryManager;
 
 /**
  * Story Module - Choice Controller
@@ -21,6 +22,11 @@ class ChoiceController extends ActionController
      * @var ChoiceTable
      */
     protected $_choiceTable;
+
+    /**
+     * @var HistoryManager
+     */
+    protected $_historyManager;
 
 
     /**
@@ -82,6 +88,19 @@ class ChoiceController extends ActionController
     public function setChoiceTable(ChoiceTable $choiceTable)
     {
         $this->_choiceTable = $choiceTable;
+        return $this;
+    }
+
+
+    /**
+     * Set the HistoryManager class
+     *
+     * @param   HistoryManager  $historyManager History Manager class
+     * @return  PageController
+     */
+    public function setHistoryManager(HistoryManager $historyManager)
+    {
+        $this->_historyManager = $historyManager;
         return $this;
     }
 }

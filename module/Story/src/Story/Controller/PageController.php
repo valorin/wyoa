@@ -3,7 +3,8 @@ namespace Story\Controller;
 
 use Zend\Mvc\Controller\ActionController,
     Zend\View\Model\ViewModel,
-    Story\Model\PageTable;
+    Story\Model\PageTable,
+    Story\Model\HistoryManager;
 
 /**
  * Story Module - Page Controller
@@ -22,6 +23,11 @@ class PageController extends ActionController
      */
     protected $_pageTable;
 
+    /**
+     * @var HistoryManager
+     */
+    protected $_historyManager;
+
 
     /**
      * Index Action
@@ -32,7 +38,8 @@ class PageController extends ActionController
         /**
          * Retrieve page id
          */
-        $nPage = $this->getEvent()->getRouteMatch()->getParam('id', 1);
+        $nPage   = $this->getEvent()->getRouteMatch()->getParam('id', 1);
+        $choice = $this->getEvent()->getRouteMatch()->getParam('choice', null);
 
 
         /**
@@ -50,6 +57,12 @@ class PageController extends ActionController
          * TODO: Add History record
          */
         //$oPage->incrementVisits();
+
+
+        /**
+         * Add to History Manager
+         */
+        $this->_historyManager->addPage($oPage, $choice);
 
 
         /**
@@ -78,6 +91,19 @@ class PageController extends ActionController
     public function setPageTable(PageTable $pageTable)
     {
         $this->_pageTable = $pageTable;
+        return $this;
+    }
+
+
+    /**
+     * Set the HistoryManager class
+     *
+     * @param   HistoryManager  $historyManager History Manager class
+     * @return  PageController
+     */
+    public function setHistoryManager(HistoryManager $historyManager)
+    {
+        $this->_historyManager = $historyManager;
         return $this;
     }
 }
