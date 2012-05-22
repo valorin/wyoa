@@ -48,7 +48,7 @@ class ChoiceController extends ActionController
         /**
          * Increment Visit Counter
          */
-        $oChoice->incrementVisits();
+        //$oChoice->incrementVisits();
 
 
         /**
