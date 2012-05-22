@@ -75,7 +75,7 @@ class PageController extends ActionController
      *
      * @param  PageTable    $pageTable
      */
-    public function setPageTable($pageTable)
+    public function setPageTable(PageTable $pageTable)
     {
         $this->_pageTable = $pageTable;
         return $this;

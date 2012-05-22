@@ -87,7 +87,7 @@ return array(
                         'id'     => '[0-9]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'Story\Controller\ChoiceController',
+                        'controller' => 'ChoiceController',
                         'action'     => 'index',
                     ),
                 ),
@@ -96,8 +96,8 @@ return array(
     ),
     'controller' => array(
         'classes' => array(
-            'PageController'   => 'Story\Controller\PageController',
-            'ChoiceController' => 'Story\Controller\ChoiceController',
+            'page'   => 'Story\Controller\PageController',
+            'choice' => 'Story\Controller\ChoiceController',
         ),
     ),
     'view_manager' => array(
@@ -106,8 +106,8 @@ return array(
         ),
         'helper_map' => array(
             'special' => 'Story\View\Helper\Special',
-            'page' => 'Story\View\Helper\Page',
-            'chance' => 'Story\View\Helper\Chance',
+            'page'    => 'Story\View\Helper\Page',
+            'chance'  => 'Story\View\Helper\Chance',
         ),
     ),
 );

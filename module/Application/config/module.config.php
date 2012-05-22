@@ -22,7 +22,7 @@ return array(
                         'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'IndexController',
+                        'controller' => 'index',
                         'action'     => 'index',
                     ),
                 ),
@@ -41,8 +41,8 @@ return array(
     ),
     'controller' => array(
         'classes' => array(
-            'IndexController'  => 'Application\Controller\IndexController',
-            'ImportController' => 'Application\Controller\ImportController',
+            'index'  => 'Application\Controller\IndexController',
+            'import' => 'Application\Controller\ImportController',
         ),
     ),
     'view_manager' => array(
