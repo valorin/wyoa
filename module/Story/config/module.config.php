@@ -87,7 +87,7 @@ return array(
                         'id'     => '[0-9]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'ChoiceController',
+                        'controller' => 'Story\Controller\ChoiceController',
                         'action'     => 'index',
                     ),
                 ),
