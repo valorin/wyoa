@@ -106,6 +106,8 @@ return array(
         ),
         'helper_map' => array(
             'special' => 'Story\View\Helper\Special',
+            'page' => 'Story\View\Helper\Page',
+            'chance' => 'Story\View\Helper\Chance',
         ),
     ),
 );

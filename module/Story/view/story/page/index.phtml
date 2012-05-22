@@ -2,7 +2,7 @@
     <article class='page' id='page<?php $oPage->id; ?>'>
         <h2><?php echo $oPage->title; ?></h2>
         <div class='story markdown'>
-            <?php echo $this->markdown($this->special($oPage->getStory())); ?>
+            <?php echo $this->page($oPage->getStory()); ?>
         </div>
         <ul class='choices'>
           <?php foreach ($oPage->getChoices() as $oChoice): ?>

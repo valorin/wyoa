@@ -191,6 +191,10 @@ header h1 small {
   font-size:17px;
 }
 .pages h2 { border-bottom:1px solid #772953; }
+.pages .chance {
+  font-style:italic;
+  color:#dd4814;
+}
 .extras { color:#ffffff; }
 .extras h3 { font-size:14px; }
 .extras p, .extras li { font-size:12px; }
