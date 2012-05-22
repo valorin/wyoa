@@ -26,7 +26,7 @@ class Chance extends AbstractHelper
         /**
          * Extract the chance strings
          */
-        $regex = '&\[([^|]+?)\s*\|\s*(\d+)%\s*\]&';
+        $regex = '&\[([^|\]]+?)\s*\|\s*(\d+)%\s*\]&';
         if (preg_match_all($regex, $story, $matches)) {
             foreach ($matches[1] as $i => $val) {
                 $replace = "";

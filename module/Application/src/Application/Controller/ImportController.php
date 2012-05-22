@@ -21,8 +21,8 @@ class ImportController extends ActionController
     /**
      * @var String
      */
-    const CHOICE = '&\[([^|\n]+?)\s*\|\s*(\d+)\]&';
-    const RANDOM = '&\[([^|\n]+?)\s*\|\s*(\d+)%\s*\|\s*([^|]+?)\s*\|\s*(\d+)\]&';
+    const CHOICE = '&\[([^|\]\n]+?)\s*\|\s*(\d+)\]&';
+    const RANDOM = '&\[([^|\]\n]+?)\s*\|\s*(\d+)%\s*\|\s*([^|]+?)\s*\|\s*(\d+)\]&';
 
     /**
      * @var Adapter
