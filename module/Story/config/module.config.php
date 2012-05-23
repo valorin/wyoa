@@ -16,7 +16,8 @@ return array(
             ),
             'Story\Model\HistoryManager' => Array(
                 'parameters' => Array(
-                    'pageTable' => 'Story\Model\PageTable',
+                    'pageTable'   => 'Story\Model\PageTable',
+                    'choiceTable' => 'Story\Model\ChoiceTable',
                 ),
             ),
             'Story\Model\PageVersionTable' => array(

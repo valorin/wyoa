@@ -58,6 +58,12 @@ class ChoiceController extends ActionController
 
 
         /**
+         * Add to History Manager
+         */
+        $this->_historyManager->addChoice($oChoice);
+
+
+        /**
          * If destination, forward to destination
          */
         if ($oChoice->destination_id) {

@@ -19,12 +19,17 @@ class HistoryManager
     /**
      * @var PageTable
      */
-    protected $_pageTable;
+    protected $pageTable;
+
+    /**
+     * @var ChoiceTable
+     */
+    protected $choiceTable;
 
     /**
      * @var Session\Container
      */
-    protected $_session;
+    protected $session;
 
 
     /**
@@ -36,7 +41,15 @@ class HistoryManager
         /**
          * Initiate the Session manager
          */
-        $this->_session = new Session\Container(get_class($this));
+        $this->session = new Session\Container(get_class($this));
+
+
+        /**
+         * Check the Session Array isset
+         */
+        if (!isset($this->session->history)) {
+            $this->session->history = Array();
+        }
     }
 
 
@@ -53,7 +66,7 @@ class HistoryManager
          * Transform Page and Choice into what we need
          */
         if (is_numeric($page)) {
-            $page = $this->_pageTable->get($page);
+            $page = $this->pageTable->get($page);
         }
 
         if ($choice instanceof Choice) {
@@ -64,7 +77,7 @@ class HistoryManager
         /**
          * Save Page Details
          */
-        $this->_add(
+        $this->add(
             Array(
                 'type'        => "page",
                 'page_id'     => $page->id,
@@ -76,23 +89,51 @@ class HistoryManager
 
 
     /**
+     * Add a history entry for the current choice
+     *
+     * @param   Integer|Choice  $choice Choice Id or Row Object
+     * @return  HistoryManager
+     */
+    public function addChoice($choice)
+    {
+        /**
+         * Transform Choice into what we need
+         */
+        if (is_numeric($choice)) {
+            $choice = $this->choiceTable->get($choice);
+        }
+
+
+        /**
+         * Save Page Details
+         */
+        $this->add(
+            Array(
+                'type'        => "choice",
+                'page_id'     => $choice->page_id,
+                'choice_id'   => $choice->id,
+                'description' => $choice->description,
+            )
+        );
+    }
+
+
+    /**
      * Add Row to the Session / Database
      *
      * @param   Array   $row
      * @return  HistoryManager
      */
-    protected function _add($row)
+    protected function add($row)
     {
-        if (!isset($this->_session->history)) {
-            $this->_session->history = Array();
-        }
+        /**
+         * Add row to the session
+         */
+        $history                = $this->session->history;
+        $history[]              = $row;
+        $this->session->history = $history;
 
-        \Zend\Debug::dump($this->_session->history);
-
-        $history = $this->_session->history;
-        $history[] = $row;
-
-        $this->_session->history = $history;
+        return $this;
     }
 
 
@@ -103,7 +144,19 @@ class HistoryManager
      */
     public function setPageTable(PageTable $pageTable)
     {
-        $this->_pageTable = $pageTable;
+        $this->pageTable = $pageTable;
+        return $this;
+    }
+
+
+    /**
+     * Inject ChoiceTable Class
+     *
+     * @param  ChoiceTable    $choiceTable
+     */
+    public function setChoiceTable(ChoiceTable $choiceTable)
+    {
+        $this->choiceTable = $choiceTable;
         return $this;
     }
 }
