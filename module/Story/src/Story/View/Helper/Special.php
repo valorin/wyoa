@@ -24,8 +24,8 @@ class Special extends AbstractHelper
     /**
      * Invoke the helper
      *
-     * @param   String  $sStory
-     * @return  String
+     * @param  String $sStory
+     * @return String
      */
     public function __invoke($sStory)
     {
@@ -52,6 +52,7 @@ class Special extends AbstractHelper
         /**
          * Return Story
          */
+
         return $sStory;
     }
 
@@ -59,11 +60,12 @@ class Special extends AbstractHelper
     /**
      * Set the special views dir
      *
-     * @param   String  $sDir
+     * @param String $sDir
      */
     public function setDir($sDir)
     {
         $this->_sDir = $sDir;
+
         return $this;
     }
 }

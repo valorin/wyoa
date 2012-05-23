@@ -42,7 +42,7 @@ class Page extends RowGateway
     /**
      * Retrieve the current story text
      *
-     * @return  String|Null
+     * @return String|Null
      */
     public function getStory()
     {
@@ -65,6 +65,7 @@ class Page extends RowGateway
         /**
          * Return null if no story found
          */
+
         return null;
     }
 
@@ -72,7 +73,7 @@ class Page extends RowGateway
     /**
      * Retrieve the page choices
      *
-     * @return  Array
+     * @return Array
      */
     public function getChoices()
     {
@@ -84,7 +85,7 @@ class Page extends RowGateway
      * Increment the number of visits
      *
      * @TODO: Fix row data update when ZF2 supports it
-     * @return  Page
+     * @return Page
      */
     public function incrementVisits()
     {
@@ -99,9 +100,9 @@ class Page extends RowGateway
      * Sets the Page Story attributed to the user.
      * Will override any existing story with the new version.
      *
-     * @param   String          $sStory Story content
-     * @param   Integer|User    $xUser  User Id | User Row Object
-     * @return  Page
+     * @param  String       $sStory Story content
+     * @param  Integer|User $xUser  User Id | User Row Object
+     * @return Page
      */
     public function setStory($sStory, $xUser = null)
     {
@@ -134,6 +135,7 @@ class Page extends RowGateway
         /**
          * Return self
          */
+
         return $this;
     }
 
@@ -141,11 +143,12 @@ class Page extends RowGateway
     /**
      * Inject PageVersionTable Class
      *
-     * @param  PageVersionTable    $pageVersonTable
+     * @param PageVersionTable $pageVersonTable
      */
     public function setPageVersionTable($pageVersionTable)
     {
         $this->_pageVersionTable = $pageVersionTable;
+
         return $this;
     }
 
@@ -153,11 +156,12 @@ class Page extends RowGateway
     /**
      * Inject ChoiceTable Class
      *
-     * @param  ChoiceTable  $choiceTable
+     * @param ChoiceTable $choiceTable
      */
     public function setChoiceTable($choiceTable)
     {
         $this->_choiceTable = $choiceTable;
+
         return $this;
     }
 }

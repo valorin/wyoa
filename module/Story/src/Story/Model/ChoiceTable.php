@@ -20,8 +20,8 @@ class ChoiceTable extends TableGateway
     /**
      * Constructor
      *
-     * @param   Adapter $adapter
-     * @param   Choice  $choice
+     * @param Adapter $adapter
+     * @param Choice  $choice
      */
     public function __construct(Adapter $adapter, Choice $choice)
     {
@@ -32,8 +32,8 @@ class ChoiceTable extends TableGateway
     /**
      * Retrieve choices based on the condition and chance
      *
-     * @param   Page|Integer    $xCondition Condition to apply
-     * @return  ResultSet
+     * @param  Page|Integer $xCondition Condition to apply
+     * @return ResultSet
      */
     public function get($xCondition)
     {

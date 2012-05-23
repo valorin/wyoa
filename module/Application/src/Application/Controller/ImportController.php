@@ -159,6 +159,7 @@ class ImportController extends ActionController
     public function setAdapter(Adapter $adapter = null)
     {
         $this->_oDb = $adapter;
+
         return $this;
     }
 
@@ -166,11 +167,12 @@ class ImportController extends ActionController
     /**
      * Inject PageTable Class
      *
-     * @param  Story\Model\PageTable    $oPageTable
+     * @param Story\Model\PageTable $oPageTable
      */
     public function setPageTable(PageTable $oPageTable)
     {
         $this->_oPageTable = $oPageTable;
+
         return $this;
     }
 
@@ -178,11 +180,12 @@ class ImportController extends ActionController
     /**
      * Inject ChoiceTable Class
      *
-     * @param  Story\Model\ChoiceTable    $oChoiceTable
+     * @param Story\Model\ChoiceTable $oChoiceTable
      */
     public function setChoiceTable(ChoiceTable $oChoiceTable)
     {
         $this->_oChoiceTable = $oChoiceTable;
+
         return $this;
     }
 }

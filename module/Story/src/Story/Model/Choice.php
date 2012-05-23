@@ -32,7 +32,7 @@ class Choice extends RowGateway
     /**
      * Returns true if a randomly generated number >= the chance value
      *
-     * @return  Boolean
+     * @return Boolean
      */
     public function checkChance()
     {
@@ -44,7 +44,7 @@ class Choice extends RowGateway
      * Increment the number of visits
      *
      * @TODO: Fix row data update when ZF2 supports it
-     * @return  Page
+     * @return Page
      */
     public function incrementVisits()
     {

@@ -79,6 +79,7 @@ class ChoiceController extends ActionController
         /**
          * Else, create new page
          */
+
         return $this->redirect()->toRoute(
             'newpage', Array('choice' => $oChoice->id)
         );
@@ -88,12 +89,13 @@ class ChoiceController extends ActionController
     /**
      * Set the 'choice' table gateway
      *
-     * @param   ChoiceTable    $choiceTable
-     * @return  Page
+     * @param  ChoiceTable $choiceTable
+     * @return Page
      */
     public function setChoiceTable(ChoiceTable $choiceTable)
     {
         $this->_choiceTable = $choiceTable;
+
         return $this;
     }
 
@@ -101,12 +103,13 @@ class ChoiceController extends ActionController
     /**
      * Set the HistoryManager class
      *
-     * @param   HistoryManager  $historyManager History Manager class
-     * @return  PageController
+     * @param  HistoryManager $historyManager History Manager class
+     * @return PageController
      */
     public function setHistoryManager(HistoryManager $historyManager)
     {
         $this->_historyManager = $historyManager;
+
         return $this;
     }
 }

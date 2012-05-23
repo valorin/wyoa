@@ -20,9 +20,9 @@ class PageTable extends TableGateway
     /**
      * Constructor
      *
-     * @param Adapter $adapter
+     * @param Adapter   $adapter
      * @param ResultSet $selectResultPrototype
-     * @param Sql\Sql $selectResultPrototype
+     * @param Sql\Sql   $selectResultPrototype
      */
     public function __construct(Adapter $adapter, Page $page)
     {
@@ -33,8 +33,8 @@ class PageTable extends TableGateway
     /**
      * Retireve page from the database
      *
-     * @param   Integer $nId    Page Id
-     * @return  Row
+     * @param  Integer $nId Page Id
+     * @return Row
      */
     public function get($nId)
     {
@@ -42,6 +42,7 @@ class PageTable extends TableGateway
          * Fetch Row
          */
         $oRowset = $this->select(array('id' => $nId));
+
         return $oRowset ? $oRowset->current() : null;
     }
 }

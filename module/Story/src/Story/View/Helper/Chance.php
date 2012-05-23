@@ -18,8 +18,8 @@ class Chance extends AbstractHelper
     /**
      * Invoke the helper
      *
-     * @param   String  $story
-     * @return  String
+     * @param  String $story
+     * @return String
      */
     public function __invoke($story)
     {
@@ -41,6 +41,7 @@ class Chance extends AbstractHelper
         /**
          * Return Story
          */
+
         return $story;
     }
 
@@ -48,11 +49,12 @@ class Chance extends AbstractHelper
     /**
      * Set the special views dir
      *
-     * @param   String  $sDir
+     * @param String $sDir
      */
     public function setDir($sDir)
     {
         $this->_sDir = $sDir;
+
         return $this;
     }
 }

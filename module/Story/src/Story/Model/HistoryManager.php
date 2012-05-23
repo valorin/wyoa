@@ -56,9 +56,9 @@ class HistoryManager
     /**
      * Add a history entry for the current page, linked from the choice
      *
-     * @param   Integer|Page    $page   Page Id or Row Object
-     * @param   Integer|Choice  $choice Choice Id or Row Object
-     * @return  HistoryManager
+     * @param  Integer|Page   $page   Page Id or Row Object
+     * @param  Integer|Choice $choice Choice Id or Row Object
+     * @return HistoryManager
      */
     public function addPage($page, $choice = null)
     {
@@ -91,8 +91,8 @@ class HistoryManager
     /**
      * Add a history entry for the current choice
      *
-     * @param   Integer|Choice  $choice Choice Id or Row Object
-     * @return  HistoryManager
+     * @param  Integer|Choice $choice Choice Id or Row Object
+     * @return HistoryManager
      */
     public function addChoice($choice)
     {
@@ -121,8 +121,8 @@ class HistoryManager
     /**
      * Add Row to the Session / Database
      *
-     * @param   Array   $row
-     * @return  HistoryManager
+     * @param  Array          $row
+     * @return HistoryManager
      */
     protected function add($row)
     {
@@ -140,11 +140,12 @@ class HistoryManager
     /**
      * Inject PageTable Class
      *
-     * @param  PageTable    $pageTable
+     * @param PageTable $pageTable
      */
     public function setPageTable(PageTable $pageTable)
     {
         $this->pageTable = $pageTable;
+
         return $this;
     }
 
@@ -152,11 +153,12 @@ class HistoryManager
     /**
      * Inject ChoiceTable Class
      *
-     * @param  ChoiceTable    $choiceTable
+     * @param ChoiceTable $choiceTable
      */
     public function setChoiceTable(ChoiceTable $choiceTable)
     {
         $this->choiceTable = $choiceTable;
+
         return $this;
     }
 }

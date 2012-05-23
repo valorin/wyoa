@@ -18,8 +18,8 @@ class Page extends AbstractHelper
     /**
      * Invoke the helper
      *
-     * @param   String  $story  Story String
-     * @return  String
+     * @param  String $story Story String
+     * @return String
      */
     public function __invoke($story)
     {
@@ -44,6 +44,7 @@ class Page extends AbstractHelper
         /**
          * Return Rendered Story
          */
+
         return $story;
     }
 }

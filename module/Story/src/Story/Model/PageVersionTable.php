@@ -19,9 +19,9 @@ class PageVersionTable extends TableGateway
     /**
      * Constructor
      *
-     * @param Adapter $adapter
+     * @param Adapter   $adapter
      * @param ResultSet $selectResultPrototype
-     * @param Sql\Sql $selectResultPrototype
+     * @param Sql\Sql   $selectResultPrototype
      */
     public function __construct(Adapter $adapter)
     {
@@ -32,8 +32,8 @@ class PageVersionTable extends TableGateway
     /**
      * Sets all page versions as inactive for the specified page
      *
-     * @param   Page|Integer    $page   Page Id or Row
-     * @return  PageVersionTable
+     * @param  Page|Integer     $page Page Id or Row
+     * @return PageVersionTable
      */
     public function setInactive($page)
     {

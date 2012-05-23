@@ -69,6 +69,7 @@ class PageController extends ActionController
          * Return page to layout and view
          */
         $this->layout()->oPage = $oPage;
+
         return Array('oPage' => $oPage);
     }
 
@@ -86,11 +87,12 @@ class PageController extends ActionController
     /**
      * Inject PageTable Class
      *
-     * @param  PageTable    $pageTable
+     * @param PageTable $pageTable
      */
     public function setPageTable(PageTable $pageTable)
     {
         $this->_pageTable = $pageTable;
+
         return $this;
     }
 
@@ -98,12 +100,13 @@ class PageController extends ActionController
     /**
      * Set the HistoryManager class
      *
-     * @param   HistoryManager  $historyManager History Manager class
-     * @return  PageController
+     * @param  HistoryManager $historyManager History Manager class
+     * @return PageController
      */
     public function setHistoryManager(HistoryManager $historyManager)
     {
         $this->_historyManager = $historyManager;
+
         return $this;
     }
 }
