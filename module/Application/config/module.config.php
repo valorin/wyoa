@@ -32,7 +32,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Story\Controller\PageController',
+                        'controller' => 'page',
                         'action'     => 'index',
                     ),
                 ),
@@ -58,7 +58,7 @@ return array(
             'error/index'   => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
-            'application' => __DIR__ . '/../view',
+            __DIR__ . '/../view',
         ),
     ),
 );

@@ -72,7 +72,7 @@ return array(
                         'choice' => '[0-9]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'Story\Controller\PageController',
+                        'controller' => 'page',
                         'action'     => 'index',
                         'id'         => 1,
                     ),
@@ -86,7 +86,7 @@ return array(
                         'choice' => '[0-9]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'Story\Controller\PageController',
+                        'controller' => 'page',
                         'action'     => 'new',
                         'choice'     => null,
                     ),
@@ -100,7 +100,7 @@ return array(
                         'id'     => '[0-9]*',
                     ),
                     'defaults' => array(
-                        'controller' => 'Story\Controller\ChoiceController',
+                        'controller' => 'choice',
                         'action'     => 'index',
                     ),
                 ),
@@ -115,7 +115,7 @@ return array(
     ),
     'view_manager' => array(
         'template_path_stack' => array(
-            'application' => __DIR__ . '/../view',
+            __DIR__ . '/../view',
         ),
         'helper_map' => array(
             'special' => 'Story\View\Helper\Special',

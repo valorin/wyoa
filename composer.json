@@ -1,0 +1,19 @@
+{
+    "name": "valorin/wyoa",
+    "description": "Write Your Own Adventure",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "wyoa",
+        "choose-your-own-adventure"
+    ],
+    "homepage": "http://wyoa.valorin.net/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Application": "module/Application/src"
+        }
+    }
+}
