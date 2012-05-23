@@ -38,10 +38,7 @@ echo $this->doctype()."\n";
         <?php echo $this->content; ?>
       </div><div class='extras'>
         <aside>
-            <h3>The story so far...</h3>
-            <ol>
-                <li><a href='#'>...</a></li>
-            </ol>
+            <?= $this->history((isset($oPage) ? $oPage : null)); ?>
         </aside><aside>
             <h3>Page Information</h3>
           <?php if (isset($oPage)): ?>

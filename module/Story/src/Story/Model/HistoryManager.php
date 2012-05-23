@@ -54,6 +54,100 @@ class HistoryManager
 
 
     /**
+     * Retrieve history records, optionally with the given page as the starting
+     *  point. By default it runs back in time, so newest pages first.
+     *
+     * @param  Page|Integer $page       Page row object
+     * @param  Boolean      $backward   Run backwards in time
+     * @param  Integer      $limit      Maximum records to return
+     * @return Array
+     */
+    public function getStory($page = null, $backward = true, $limit = 15)
+    {
+        /**
+         * Transform Page into what we need
+         */
+        if ($page instanceof Page) {
+            $page = $page->id;
+        }
+
+
+        /**
+         * Retrieve the history array
+         */
+        $history = $this->session->history;
+
+
+        /**
+         * Reverse if requested
+         */
+        if ($backward) {
+            $history = array_reverse($history);
+        }
+
+
+        /**
+         * Loop & Save History
+         */
+        $return = Array();
+        $choice = null;
+        foreach ($history as $row) {
+            /**
+             * Break if we hit the limit
+             */
+            if (count($return) >= $limit) {
+                break;
+            }
+
+
+            /**
+             * Check for Page Id
+             */
+            if (!isset($row['page_id'])) {
+                continue;
+            }
+
+
+            /**
+             * Check for the page record
+             */
+            $i = count($return) - 1;
+            if ($row['type'] == "page" && ($row['page_id'] == $page || is_null($page))) {
+                if (count($return) && $return[$i]['page_id'] == $page) {
+                    $choice = $row['choice_id'];
+                    continue;
+                }
+
+                $return[] = Array(
+                    'page_id'     => $row['page_id'],
+                    'description' => $row['description'],
+                );
+
+                $choice = $row['choice_id'];
+                $page   = $row['page_id'];
+                continue;
+            }
+
+
+            /**
+             * Check for the choice record
+             */
+            if ($row['type'] == "choice" && $row['choice_id'] == $choice) {
+                $return[$i]['choice'] = $row['description'];
+
+                $choice = null;
+                $page   = $row['page_id'];
+
+                continue;
+            }
+        }
+
+
+        return $return;
+    }
+
+
+    /**
      * Add a history entry for the current page, linked from the choice
      *
      * @param  Integer|Page   $page   Page Id or Row Object
@@ -119,25 +213,6 @@ class HistoryManager
 
 
     /**
-     * Add Row to the Session / Database
-     *
-     * @param  Array          $row
-     * @return HistoryManager
-     */
-    protected function add($row)
-    {
-        /**
-         * Add row to the session
-         */
-        $history                = $this->session->history;
-        $history[]              = $row;
-        $this->session->history = $history;
-
-        return $this;
-    }
-
-
-    /**
      * Inject PageTable Class
      *
      * @param PageTable $pageTable
@@ -158,6 +233,25 @@ class HistoryManager
     public function setChoiceTable(ChoiceTable $choiceTable)
     {
         $this->choiceTable = $choiceTable;
+
+        return $this;
+    }
+
+
+    /**
+     * Add Row to the Session / Database
+     *
+     * @param  Array          $row
+     * @return HistoryManager
+     */
+    protected function add($row)
+    {
+        /**
+         * Add row to the session
+         */
+        $history                = $this->session->history;
+        $history[]              = $row;
+        $this->session->history = $history;
 
         return $this;
     }

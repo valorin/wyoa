@@ -54,6 +54,11 @@ return array(
                     'sDir' => __DIR__ .'/../view/story/special',
                 ),
             ),
+            'Story\View\Helper\History' => Array(
+                'parameters' => Array(
+                    'historyManager' => 'Story\Model\HistoryManager',
+                ),
+            ),
         ),
     ),
     'router' => array(
@@ -116,6 +121,7 @@ return array(
             'special' => 'Story\View\Helper\Special',
             'page'    => 'Story\View\Helper\Page',
             'chance'  => 'Story\View\Helper\Chance',
+            'history' => 'Story\View\Helper\History',
         ),
     ),
 );
