@@ -57,9 +57,9 @@ class HistoryManager
      * Retrieve history records, optionally with the given page as the starting
      *  point. By default it runs back in time, so newest pages first.
      *
-     * @param  Page|Integer $page       Page row object
-     * @param  Boolean      $backward   Run backwards in time
-     * @param  Integer      $limit      Maximum records to return
+     * @param  Page|Integer $page     Page row object
+     * @param  Boolean      $backward Run backwards in time
+     * @param  Integer      $limit    Maximum records to return
      * @return Array
      */
     public function getStory($page = null, $backward = true, $limit = 15)

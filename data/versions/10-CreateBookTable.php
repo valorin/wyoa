@@ -18,7 +18,7 @@ class CreateBookTable extends AbstractVersion
     /**
      * Upgrade Script
      *
-     * @return  Boolean
+     * @return Boolean
      */
     public function upgrade()
     {
@@ -48,7 +48,7 @@ SQL;
     /**
      * Downgrade Script
      *
-     * @return  Boolean
+     * @return Boolean
      */
     public function downgrade()
     {

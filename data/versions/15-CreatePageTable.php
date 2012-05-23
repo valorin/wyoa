@@ -18,7 +18,7 @@ class CreatePageTable extends AbstractVersion
     /**
      * Upgrade Script
      *
-     * @return  Boolean
+     * @return Boolean
      */
     public function upgrade()
     {
@@ -104,6 +104,7 @@ SQL;
 
         $this->_insert('page', $aPages);
         $this->_insert('page_version', $aVersions);
+
         return true;
     }
 
@@ -111,7 +112,7 @@ SQL;
     /**
      * Downgrade Script
      *
-     * @return  Boolean
+     * @return Boolean
      */
     public function downgrade()
     {
