@@ -153,6 +153,7 @@ header h1 small { display:block; }
   margin:20px 10px 10px 10px;
   padding:10px 20px;
 }
+.content .pages h2 { border-bottom:1px solid #772953; }
 .content .extras { text-align:center; }
 .content .extras aside {
   background:#2c001e;
@@ -164,6 +165,8 @@ header h1 small { display:block; }
   vertical-align:top;
   text-align:left;
 }
+.content .extras ul, .content .extras ol { padding-left:25px; }
+.content .extras .history li { padding-bottom:5px; }
 footer {
   margin:0;
   padding:20px 10px;
@@ -190,7 +193,6 @@ header h1 small {
   font-weight:normal;
   font-size:17px;
 }
-.pages h2 { border-bottom:1px solid #772953; }
 .pages .chance {
   font-style:italic;
   color:#682209;
@@ -207,6 +209,7 @@ header h1 small {
   text-decoration:underline;
   color:#ef784e;
 }
+.extras .history .choice { font-style:italic; }
 footer p {
   font-size:12px;
   color:#777777;

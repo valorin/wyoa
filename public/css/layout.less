@@ -21,12 +21,16 @@ header {
         border-top: @pagesBorder;
         margin: 20px 10px 10px 10px;
         padding: 10px 20px;
+
+        h2 {
+            border-bottom: 1px solid @lightPurple;
+        }
     }
 
     .extras {
         text-align: center;
 
-         aside {
+        aside {
             background: @extrasBackground;
             border-top: @extrasBorder;
             width: 200px;
@@ -35,6 +39,16 @@ header {
             display: inline-block;
             vertical-align: top;
             text-align: left;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        .history {
+            li {
+                padding-bottom: 5px;
+            }
         }
     }
 }

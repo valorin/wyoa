@@ -37,9 +37,9 @@ echo $this->doctype()."\n";
       <div class='pages'>
         <?php echo $this->content; ?>
       </div><div class='extras'>
-        <aside>
+        <aside class='history'>
             <?= $this->history((isset($oPage) ? $oPage : null)); ?>
-        </aside><aside>
+        </aside><aside class='page-info'>
             <h3>Page Information</h3>
           <?php if (isset($oPage)): ?>
             <ul>
@@ -54,7 +54,7 @@ echo $this->doctype()."\n";
           <?php else: ?>
             <p><em>No page information to display.</em></p>
           <?php endif; ?>
-        </aside><aside>
+        </aside><aside class='user-info'>
             <h3>User Information</h3>
             <p><em>Not logged in.</em></p>
         </aside>
