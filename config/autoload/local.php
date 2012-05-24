@@ -11,11 +11,11 @@
  * credentials from accidentally being comitted into version control.
  */
 return array(
-    'di' => array(
-        'instance' => array(
-            'Zend\Db\Adapter\Adapter' => array(
-                'parameters' => array(
-                    'driver' => array(
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => function ($sm) {
+                return new Zend\Db\Adapter\Adapter(
+                    array(
                         'driver'         => 'Pdo',
                         'dsn'            => 'mysql:dbname=wyoa;hostname=localhost',
                         'username'       => 'wyoa',
@@ -23,9 +23,9 @@ return array(
                         'driver_options' => array(
                             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
                         ),
-                    ),
-                ),
-            ),
+                    )
+                );
+            },
         ),
     ),
 );

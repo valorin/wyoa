@@ -38,16 +38,16 @@ echo $this->doctype()."\n";
         <?php echo $this->content; ?>
       </div><div class='extras'>
         <aside class='history'>
-            <?= $this->history((isset($oPage) ? $oPage : null)); ?>
+            <?= $this->history((isset($page) ? $page : null)); ?>
         </aside><aside class='page-info'>
             <h3>Page Information</h3>
-          <?php if (isset($oPage)): ?>
+          <?php if (isset($page)): ?>
             <ul>
-                <li>Page #<?php echo $oPage->id; ?></li>
-                <li>Visits: <?php echo $oPage->visits; ?></li>
-                <li>Created: <?php echo $oPage->created; ?></li>
-                <li>Created by: <?php echo $oPage->user_id; ?></li>
-                <li>Updated: <?php echo $oPage->updated; ?></li>
+                <li>Page #<?php echo $page->id; ?></li>
+                <li>Visits: <?php echo $page->visits; ?></li>
+                <li>Created: <?php echo $page->created; ?></li>
+                <li>Created by: <?php echo $page->user_id; ?></li>
+                <li>Updated: <?php echo $page->updated; ?></li>
                 <li>Updated by: </li>
                 <!-- <li><a href='#edit'>Edit Page</a></li> -->
             </ul>

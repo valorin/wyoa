@@ -1,11 +1,11 @@
-<?php if (isset($oPage)): ?>
-    <article class='page' id='page<?php $oPage->id; ?>'>
-        <h2><?php echo $oPage->title; ?></h2>
+<?php if (isset($page)): ?>
+    <article class='page' id='page<?php $page->id; ?>'>
+        <h2><?php echo $page->title; ?></h2>
         <div class='story markdown'>
-            <?php echo $this->page($oPage->getStory()); ?>
+            <?php echo $this->page($page->getStory()); ?>
         </div>
         <ul class='choices'>
-          <?php foreach ($oPage->getChoices() as $oChoice): ?>
+          <?php foreach ($page->getChoices() as $oChoice): ?>
             <?php if (!$oChoice->checkChance()) continue; ?>
             <li><a href='<?php echo $this->url('choice', Array('id' => $oChoice->id)); ?>'><?php echo $oChoice->description; ?></a></li>
           <?php endforeach; ?>

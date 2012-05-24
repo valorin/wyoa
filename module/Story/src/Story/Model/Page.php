@@ -32,9 +32,23 @@ class Page extends RowGateway
      * Constructor
      *
      * @param Adapter $adapter
+     * @param ChoiceTable $choiceTable
+     * @param PageVersionTable $pageVersonTable
      */
-    public function __construct(Adapter $adapter = null)
+    public function __construct(Adapter $adapter = null,
+        ChoiceTable $choiceTable = null,
+        PageVersionTable $pageVersionTable = null)
     {
+        /**
+         * Save Tables
+         */
+        $this->_pageVersionTable = $pageVersionTable;
+        $this->_choiceTable      = $choiceTable;
+
+
+        /**
+         * Run Parent Construct
+         */
         return parent::__construct('id', 'page', $adapter);
     }
 
@@ -135,32 +149,6 @@ class Page extends RowGateway
         /**
          * Return self
          */
-
-        return $this;
-    }
-
-
-    /**
-     * Inject PageVersionTable Class
-     *
-     * @param PageVersionTable $pageVersonTable
-     */
-    public function setPageVersionTable($pageVersionTable)
-    {
-        $this->_pageVersionTable = $pageVersionTable;
-
-        return $this;
-    }
-
-
-    /**
-     * Inject ChoiceTable Class
-     *
-     * @param ChoiceTable $choiceTable
-     */
-    public function setChoiceTable($choiceTable)
-    {
-        $this->_choiceTable = $choiceTable;
 
         return $this;
     }

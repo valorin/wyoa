@@ -19,14 +19,14 @@ use Zend\Mvc\Controller\ActionController,
 class PageController extends ActionController
 {
     /**
-     * @var Story\Model\PageTable
+     * @var PageTable
      */
-    protected $_pageTable;
+    protected $pageTable;
 
     /**
      * @var HistoryManager
      */
-    protected $_historyManager;
+    protected $historyManager;
 
 
     /**
@@ -38,16 +38,16 @@ class PageController extends ActionController
         /**
          * Retrieve page id
          */
-        $nPage   = $this->getEvent()->getRouteMatch()->getParam('id', 1);
+        $page   = $this->getEvent()->getRouteMatch()->getParam('id', 1);
         $choice = $this->getEvent()->getRouteMatch()->getParam('choice', null);
 
 
         /**
          * Load Page
          */
-        $oPage = $this->_pageTable->get($nPage);
+        $page = $this->getPageTable()->get($page);
 
-        if (!$oPage) {
+        if (!$page) {
             return Array();
         }
 
@@ -56,21 +56,21 @@ class PageController extends ActionController
          * Increment Visits Counter
          * TODO: Add History record
          */
-        //$oPage->incrementVisits();
+        //$page->incrementVisits();
 
 
         /**
          * Add to History Manager
          */
-        $this->_historyManager->addPage($oPage, $choice);
+        $this->getHistoryManager()->addPage($page, $choice);
 
 
         /**
          * Return page to layout and view
          */
-        $this->layout()->oPage = $oPage;
+        $this->layout()->page = $page;
 
-        return Array('oPage' => $oPage);
+        return Array('page' => $page);
     }
 
 
@@ -85,27 +85,60 @@ class PageController extends ActionController
 
 
     /**
-     * Inject PageTable Class
+     * Get the PageTable class
      *
-     * @param PageTable $pageTable
+     * @return  PageTable
+     */
+    public function getPageTable()
+    {
+        if (is_null($this->pageTable)) {
+            $this->pageTable = $this->getServiceLocator()->get("PageTable");
+        }
+
+        return $this->pageTable;
+    }
+
+
+    /**
+     * Set the PageTable class
+     *
+     * @param  PageTable      $pageTable
+     * @return PageController
      */
     public function setPageTable(PageTable $pageTable)
     {
-        $this->_pageTable = $pageTable;
+        $this->pageTable = $pageTable;
 
         return $this;
     }
 
 
     /**
+     * Get the HistoryManager class
+     *
+     * @return  HistoryManager
+     */
+    public function getHistoryManager()
+    {
+        if (is_null($this->historyManager)) {
+            $this->historyManager = $this->getServiceLocator()->get(
+                "HistoryManager"
+            );
+        }
+
+        return $this->historyManager;
+    }
+
+
+    /**
      * Set the HistoryManager class
      *
-     * @param  HistoryManager $historyManager History Manager class
+     * @param  HistoryManager      $historyManager
      * @return PageController
      */
     public function setHistoryManager(HistoryManager $historyManager)
     {
-        $this->_historyManager = $historyManager;
+        $this->historyManager = $historyManager;
 
         return $this;
     }

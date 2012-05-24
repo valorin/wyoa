@@ -35,9 +35,18 @@ class HistoryManager
     /**
      * Construct the History Manager
      *
+     * @param PageTable   $pageTable
+     * @param ChoiceTable $choiceTable
      */
-    public function __construct()
+    public function __construct(PageTable $pageTable, ChoiceTable $choiceTable)
     {
+        /**
+         * Save tables
+         */
+        $this->pageTable = $pageTable;
+        $this->choiceTable = $choiceTable;
+
+
         /**
          * Initiate the Session manager
          */
@@ -209,32 +218,6 @@ class HistoryManager
                 'description' => $choice->description,
             )
         );
-    }
-
-
-    /**
-     * Inject PageTable Class
-     *
-     * @param PageTable $pageTable
-     */
-    public function setPageTable(PageTable $pageTable)
-    {
-        $this->pageTable = $pageTable;
-
-        return $this;
-    }
-
-
-    /**
-     * Inject ChoiceTable Class
-     *
-     * @param ChoiceTable $choiceTable
-     */
-    public function setChoiceTable(ChoiceTable $choiceTable)
-    {
-        $this->choiceTable = $choiceTable;
-
-        return $this;
     }
 
 
