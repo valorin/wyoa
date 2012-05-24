@@ -21,12 +21,12 @@ class ChoiceController extends ActionController
     /**
      * @var ChoiceTable
      */
-    protected $_choiceTable;
+    protected $choiceTable;
 
     /**
      * @var HistoryManager
      */
-    protected $_historyManager;
+    protected $historyManager;
 
 
     /**
@@ -44,7 +44,7 @@ class ChoiceController extends ActionController
         /**
          * Load Choice
          */
-        $oChoice = $this->_choiceTable->get($nChoice);
+        $oChoice = $this->getChoiceTable()->get($nChoice);
 
         if (!$oChoice) {
             return Array();
@@ -60,7 +60,7 @@ class ChoiceController extends ActionController
         /**
          * Add to History Manager
          */
-        $this->_historyManager->addChoice($oChoice);
+        $this->getHistoryManager()->addChoice($oChoice);
 
 
         /**
@@ -87,28 +87,60 @@ class ChoiceController extends ActionController
 
 
     /**
-     * Set the 'choice' table gateway
+     * Get the ChoiceTable class
      *
-     * @param  ChoiceTable $choiceTable
-     * @return Page
+     * @return  ChoiceTable
+     */
+    public function getChoiceTable()
+    {
+        if (is_null($this->choiceTable)) {
+            $this->choiceTable = $this->getServiceLocator()->get("ChoiceTable");
+        }
+
+        return $this->choiceTable;
+    }
+
+
+    /**
+     * Set the ChoiceTable class
+     *
+     * @param  ChoiceTable      $pageTable
+     * @return ChoiceController
      */
     public function setChoiceTable(ChoiceTable $choiceTable)
     {
-        $this->_choiceTable = $choiceTable;
+        $this->choiceTable = $choiceTable;
 
         return $this;
     }
 
 
     /**
+     * Get the HistoryManager class
+     *
+     * @return  HistoryManager
+     */
+    public function getHistoryManager()
+    {
+        if (is_null($this->historyManager)) {
+            $this->historyManager = $this->getServiceLocator()->get(
+                "HistoryManager"
+            );
+        }
+
+        return $this->historyManager;
+    }
+
+
+    /**
      * Set the HistoryManager class
      *
-     * @param  HistoryManager $historyManager History Manager class
+     * @param  HistoryManager      $historyManager
      * @return PageController
      */
     public function setHistoryManager(HistoryManager $historyManager)
     {
-        $this->_historyManager = $historyManager;
+        $this->historyManager = $historyManager;
 
         return $this;
     }
