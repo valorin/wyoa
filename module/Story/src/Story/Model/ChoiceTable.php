@@ -1,9 +1,9 @@
 <?php
 namespace Story\Model;
 
-use Zend\Db\TableGateway\TableGateway,
-    Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\TableGateway\Feature\RowGatewayFeature;
+use Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - ChoiceTable
@@ -25,7 +25,8 @@ class ChoiceTable extends TableGateway
      */
     public function __construct(Adapter $adapter, Choice $choice)
     {
-        return parent::__construct('choice', $adapter, new ResultSet($choice));
+        $feature = new RowGatewayFeature($choice);
+        return parent::__construct('choice', $adapter, $feature);
     }
 
 

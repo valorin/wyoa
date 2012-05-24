@@ -52,20 +52,6 @@ class Module
                     $class->setHistoryManager($sm->get('HistoryManager'));
                     return $class;
                 },
-                /*
-                'PageController' => function ($sm) {
-                    $class = new Controller\PageController();
-                    $class->setPageTable($sm->get('PageTable'));
-                    $class->setHistoryManager($sm->get('HistoryManager'));
-                    return $class;
-                },
-                'ChoiceController' => function ($sm) {
-                    $class = new Controller\ChoiceController();
-                    $class->setChoiceTable($sm->get('ChoiceTable'));
-                    $class->setHistoryManager($sm->get('HistoryManager'));
-                    return $class;
-                },
-                */
             ),
         );
     }

@@ -1,9 +1,9 @@
 <?php
 namespace Story\Model;
 
-use Zend\Db\TableGateway\TableGateway,
-    Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\TableGateway\Feature\RowGatewayFeature;
+use Zend\Db\Adapter\Adapter;
 
 /**
  * Story Module - PageTable
@@ -26,7 +26,8 @@ class PageTable extends TableGateway
      */
     public function __construct(Adapter $adapter, Page $page)
     {
-        return parent::__construct('page', $adapter, new ResultSet($page));
+        $feature = new RowGatewayFeature($page);
+        return parent::__construct('page', $adapter, $feature);
     }
 
 
