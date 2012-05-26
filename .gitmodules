@@ -3,7 +3,7 @@
     url = git://github.com/valorin/ValVersion.git
 [submodule "vendor/ValCommon"]
     path = vendor/ValCommon
-    url = git@github.com:valorin/ValCommon.git
+    url = git://github.com/valorin/ValCommon.git
 [submodule "vendor/ZendDeveloperTools"]
     path = vendor/ZendDeveloperTools
     url = git://github.com/zendframework/ZendDeveloperTools.git
